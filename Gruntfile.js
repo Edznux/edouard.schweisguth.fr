@@ -44,6 +44,21 @@ module.exports = function(grunt) {
         },
       },
     },
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src : [
+            'assets/css/*.css',
+            'assets/js/*.js',
+            'index.html'
+          ]
+        },
+        options: {
+          watchTask: true,
+          server: './app'
+        }
+      }
+    }
   });
 
   // These plugins provide necessary tasks.
@@ -51,7 +66,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-browser-sync');
   // Default task.
-  grunt.registerTask('default', ['clean', 'concat','less','watch']);
+  grunt.registerTask('default', ['clean', 'concat','less','watch','browserSync']);
 
 };

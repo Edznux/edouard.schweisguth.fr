@@ -46,14 +46,14 @@
 
 	<div class="container fullscreen  blue">
 		<div class="pos-accueil"></div>
-		<div class="title">
+		<div class="title front">
 			<div class="main-title">
 				<h1>Edouard Schweisguth</h1>
 				<div class="underline"></div>
 			</div>
 		</div>
 
-		<div class="text">
+		<div class="text front">
 			<p class="main-description">
 				Hey, <br/>
 				Je suis Edouard, étudiant en informatique en licence 3. <br />
@@ -101,29 +101,39 @@
 		<div class="cv">
 			<div class="cv-box">
 				<div class="cv-btn">Voir</div>
-				Version animée et intéractive
+				<div class="cv-exp">
+					Version animée et intéractive
+				</div>
 			</div>
 			<div class="cv-box">
-				<div class="cv-btn">Télécharger</div>
-				Version imprimable (pdf)
+				<a class="cv-btn" href="cv.pdf">Télécharger</a>
+				<div class="cv-exp">
+					Version imprimable (pdf)
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="container fullscreen  blue">
 		<div class="pos-accueil"></div>
-		<div class="title">
+		<div class="title front">
 			<div class="main-title">
 				<h2>Contacts</h2>
 			</div>
 		</div>
-
-		<div class="text">
-			<p class="description">
-				<a href="">Github</a>
-				<a href="">Email</a>
-				<a href="">Twitter</a>
-			</p>
+		<div class="contact-box front">
+			<div class="social">
+				<a href="http://github.com/edznux">Github</a>
+				<a href="mailto:edouard.schweisguth1@gmail.com" class="split">Email</a>
+				<a href="http://twitter.com/edznux">Twitter</a>
+			</div>
+			<div class="form-box">
+				<input type="text" class="contact-input" name="name" placeholder="Nom">
+				<input type="text" class="contact-input" name="name" placeholder="Email">
+				<span class="message">Message</span>
+				<textarea class="contact-input"></textarea>
+				<input type="submit" class="contact-submit" value="Envoyer"></input>
+			</div>
 		</div>
 	</div>
 	<canvas id="canvas"></canvas>
