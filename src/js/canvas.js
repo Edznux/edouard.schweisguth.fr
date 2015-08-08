@@ -48,7 +48,7 @@ var Grid = function(canvasId,size){
 		canvas.height = window.innerHeight - (self.bleedsize_y*size);
 
 		self.ctx.strokeStyle = "#ffd997";
-		self.ctx.lineWidth = 2;
+		self.ctx.lineWidth = 1.51;
 	};
 
 	this.points = [];
