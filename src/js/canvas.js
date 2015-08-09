@@ -1,4 +1,4 @@
-var DEFAULT_RANDOM_DECAL = 40;
+var DEFAULT_RANDOM_DECAL = 45;
 var DEFAULT_RANDOM_VELOCITY = 1;
 var MAX_MOVE_X = 15;
 var MAX_MOVE_Y = 15;
@@ -48,7 +48,7 @@ var Grid = function(canvasId,size){
 		canvas.height = window.innerHeight - (self.bleedsize_y*size);
 
 		self.ctx.strokeStyle = "#ffd997";
-		self.ctx.lineWidth = 1.51;
+		self.ctx.lineWidth = 1.41;
 	};
 
 	this.points = [];

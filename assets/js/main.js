@@ -1,6 +1,8 @@
 /**
 * Gestion des onglets
 * @name : tab id of current element
+* the main element is auto-calculated by prefixing the @name with .pos-
+* main element id will be for example : #pos-example
 */
 var Onglet = function(name){
 	/**
@@ -76,7 +78,7 @@ var accueil = new Onglet('#accueil');
 var informations = new Onglet('#informations');
 var projets = new Onglet('#projets');
 var cv = new Onglet('#cv');
-var contacts = new Onglet('#contacts');;var DEFAULT_RANDOM_DECAL = 40;
+var contacts = new Onglet('#contacts');;var DEFAULT_RANDOM_DECAL = 45;
 var DEFAULT_RANDOM_VELOCITY = 1;
 var MAX_MOVE_X = 15;
 var MAX_MOVE_Y = 15;
@@ -126,7 +128,7 @@ var Grid = function(canvasId,size){
 		canvas.height = window.innerHeight - (self.bleedsize_y*size);
 
 		self.ctx.strokeStyle = "#ffd997";
-		self.ctx.lineWidth = 1.51;
+		self.ctx.lineWidth = 1.41;
 	};
 
 	this.points = [];

@@ -1,6 +1,8 @@
 /**
 * Gestion des onglets
 * @name : tab id of current element
+* the main element is auto-calculated by prefixing the @name with .pos-
+* main element id will be for example : #pos-example
 */
 var Onglet = function(name){
 	/**
