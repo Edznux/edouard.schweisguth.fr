@@ -104,21 +104,33 @@ body {
   margin: 0 20%;
   width: 40%;
   font-size: 1.2em;
+  top: 8%;
+  position: relative;
 }
 .projet {
   margin-top: 25px;
+}
+.projet-main-box {
+  float: left;
 }
 .projet-title {
   float: left;
   color: #f57c00;
   font-size: 1.3em;
+  padding-right: 10px;
 }
 .projet-date {
+  float: left;
   color: #848484;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 5px 0px 5px 0px;
 }
 .projet-desc {
-  padding-left: 10px;
+  width: 100%;
+  padding: 15px;
+  padding-top: 0px;
+  float: left;
 }
 .more {
   padding: 4px;
@@ -128,6 +140,7 @@ body {
   margin: 0 auto;
   text-align: center;
   background-color: #FFF;
+  float: left;
 }
 @media (min-width: 799px) {
   .text {
@@ -135,6 +148,8 @@ body {
     margin: 0 auto;
     z-index: 4;
     text-align: justify;
+    top: 8%;
+    position: relative;
   }
 }
 @media (max-width: 800px) {
@@ -301,6 +316,10 @@ textarea.contact-input {
   font-weight: 300;
   background-color: #212121;
 }
+a {
+  text-decoration: none;
+  color: #FFF;
+}
 p a {
   color: #FFF;
   text-decoration: none;
@@ -340,4 +359,21 @@ a:hover {
 }
 .sails {
   color: #41bac2;
+}
+.btn {
+  display: inline-block;
+  margin: 0px 10px;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  float: left;
+  padding: 2px 4px;
+}
+.github {
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+}
+.demo {
+  border: 1px dashed rgba(255, 255, 255, 0.4);
 }

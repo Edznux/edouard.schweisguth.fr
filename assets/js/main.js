@@ -36,10 +36,10 @@ var Onglet = function(name){
 	* private function
 	*/
 	function scrollHandler(){
-		var scrollTop = window.scrollY;
-		var smooth = (scrollTop * 1.2);
-		if(smooth >= self.getMainEl.offsetTop &&
-		   smooth <= self.getMainEl.getBoxQuads()[0].bounds.height + self.getMainEl.offsetTop){
+		var scrollTop = window.scrollY * 1.2; // more smooth
+		
+		if(scrollTop >= self.getMainEl.offsetTop &&
+		   scrollTop <= self.getMainEl.offsetHeight + self.getMainEl.offsetTop){
 		
 			self.select();
 		}else{
