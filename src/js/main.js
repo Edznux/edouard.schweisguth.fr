@@ -1,65 +1,79 @@
-/*
+/**
 * Gestion des onglets
+* @name : tab id of current element
 */
 var Onglet = function(name){
+	/**
+	* Public attribute
+	*/
+	// self is reference to the current state of "this"
 	var self = this;
 	this.self = self;
 
 	this.name = name;
+	this.purename = name.replace(/#/, "");
 	this.el = document.querySelector(name);
+	this.getMainEl = document.getElementById("pos-"+this.purename);
 
+	/*
+	* Click to goto page => TODO smooth scroll ?
+	*/
+	this.el.addEventListener('click',function(){
+		window.scrollTo(0,self.getMainEl.offsetTop);
+	});
+
+	/*
+	* Listen for scroll or page load (init) 
+	* slide by calling select or deselect method
+	* only if page show > 1.2 * scroll
+	*/
+	window.addEventListener('scroll',scrollHandler);
+	window.addEventListener('load',scrollHandler);
+
+	/*
+	* private function
+	*/
+	function scrollHandler(){
+		var scrollTop = window.scrollY;
+		var smooth = (scrollTop * 1.2);
+		if(smooth >= self.getMainEl.offsetTop &&
+		   smooth <= self.getMainEl.getBoxQuads()[0].bounds.height + self.getMainEl.offsetTop){
+		
+			self.select();
+		}else{
+			self.deselect();
+		}
+	}
+
+	/*
+	* public method
+	*/
 	this.animate = function(){
 		console.log(self.el);
 		self.el.addEventListener("click",function(){
 			self.el.classList.toggle('onglet-deep');
 		});
 	};
+	
 	this.select = function(){
-		console.log("select");
-		self.el.classList.toggle('onglet-select');
+		self.el.classList.add('onglet-select');
 	};
-	this.setBounds = function(next_el){
-		self.el.offsetTop;
-		document.querySelector(next_el).offsetTop;
-	}
-	//TODO : show element (toggle onglet-select) when scroll under 'element'  
-	this.show = function(start_el, next_el){
-		console.log("show");
-		var s_to,next_to;
-		try{
-			s_to = document.querySelector(start_el).offsetTop;
-			next_to = document.querySelector(next_el).offsetTop;
-		}catch(e){
-			console.log('start_el or next_el not found ('+start_el+", "+next_el+")");
-			return;
-		}
+	
+	this.deselect = function(){
+		self.el.classList.remove('onglet-select');
+	};
 
-		console.log("start : "+ s_to + " next : " + next_to);
-		var scrollTop = window.scrollY;
-		console.log(scrollTop);
-		if(s_to >= scrollTop && next_to >= scrollTop){
-			console.log("if show");
-			self.select();
-		}
+	this.setBounds = function(next_el){
+		// self.el.offsetTop;
+		// document.querySelector(next_el).offsetTop;
 	};
 };
-// elements = list of objects : {start, next};
-function scrollHandler(elements){
-	for(var i = 0; i < elements.length; i++){
 
-	}
-	accueil.show(".pos-accueil",".pos-informations");
-	informations.show(".pos-informations",".pos-projets");
-}
 
+//store into array all tabs available
+var tabList = [];
 var accueil = new Onglet('#accueil');
-	// accueil.select();
-	accueil.animate();
-
 var informations = new Onglet('#informations');
-	// accueil.select();
-	informations.animate();
-
-window.addEventListener('scroll',function(){
-	scrollHandler();
-});
+var projets = new Onglet('#projets');
+var cv = new Onglet('#cv');
+var contacts = new Onglet('#contacts');
