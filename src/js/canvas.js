@@ -1,7 +1,7 @@
 var DEFAULT_RANDOM_DECAL = 45;
 var DEFAULT_RANDOM_VELOCITY = 1;
-var MAX_MOVE_X = 15;
-var MAX_MOVE_Y = 15;
+var MAX_MOVE_X = 16;
+var MAX_MOVE_Y = 16;
 var SPEED_MULTIPLIER = 0.4;
 
 var Point = function(x,y,vx,vy,size,sx,sy){
@@ -28,6 +28,8 @@ var Point = function(x,y,vx,vy,size,sx,sy){
 var Grid = function(canvasId,size){
 	var self = this;
 	this.self = self;
+	this.mousePos;
+	this.isMouseEnabled = false;
 	this.canvas = document.getElementById(canvasId);
 
 	this.ctx = this.canvas.getContext("2d");
@@ -114,6 +116,28 @@ var Grid = function(canvasId,size){
 			}
 		}
 	};
+	this.setMousePos = function(evt) {
+		console.log(evt);
+		var rect = self.canvas.getBoundingClientRect();
+		console.log(evt.clientX - rect.left, evt.clientY - rect.top);
+		self.mousePos = {
+			x: evt.clientX - rect.left,
+			y: evt.clientY - rect.top
+		};
+	};
+
+	this.enableMouseListener = function(bool){
+		self.isMouseEnabled = bool;
+		console.log("enable mouseListeners");
+		self.canvas.addEventListener("mousemove", function(evt){
+			self.setMousePos(evt);
+		});
+	};
+
+	this.getMousePos = function() {
+		console.log(self.mousePos);
+		return self.mousePos;
+	};
 
 	this.drawLine = function(){
 		var points_lx = this.points.length;
@@ -131,16 +155,24 @@ var Grid = function(canvasId,size){
 
 				self.ctx.moveTo(self.points[i][j].x, self.points[i][j].y);
 				self.ctx.lineTo(self.points[i][j].links[2].x, self.points[i][j].links[2].y);
+				if(self.isMouseEnabled){
+					console.log("event lel ");
+					if(self.ctx.isPointInPath(self.getMousePos().x, self.getMousePos().y)){
+						console.log("HUEHUEUHE", self.getMousePos());
+					}
+				}
 				self.ctx.stroke();
 			}
 		}
 	};
 
 	this.movePoint = function(i,j){
+			// console.log("i "+i +" j "+j+" : "+self.points[i][j].x);
 		//not working ! 
 		//TODO : looking if point' pos are inbound of max move
 		// x sup
 		if(self.points[i][j].x >= self.points[i][j].origin_x + MAX_MOVE_X){
+			self.points[i][j].velocity_x = self.randomVelocity();
 			self.points[i][j].x -= Math.abs(self.points[i][j].velocity_x) * self.points[i][j].speed_x;
 		}else{
 			self.points[i][j].x += Math.abs(self.points[i][j].velocity_x) * self.points[i][j].speed_x;
@@ -148,20 +180,23 @@ var Grid = function(canvasId,size){
 
 		// y sup
 		if(self.points[i][j].y >= self.points[i][j].origin_y + MAX_MOVE_Y){
+			self.points[i][j].velocity_y = self.randomVelocity();
 			self.points[i][j].y -= Math.abs(self.points[i][j].velocity_y) * self.points[i][j].speed_y;
 		}else{
 			self.points[i][j].y += Math.abs(self.points[i][j].velocity_y) * self.points[i][j].speed_y;
 		}
 
 		//x inf
-		if(self.points[i][j].x <= self.points[i][j].origin_x - MAX_MOVE_X){
+		if(self.points[i][j].x < self.points[i][j].origin_x - MAX_MOVE_X){
+			self.points[i][j].velocity_x = self.randomVelocity();
 			self.points[i][j].x += Math.abs(self.points[i][j].velocity_x) * self.points[i][j].speed_x;
 		}else{
 			self.points[i][j].x += Math.abs(self.points[i][j].velocity_x) * self.points[i][j].speed_x;
 		}
 
 		//y inf
-		if(self.points[i][j].y <= self.points[i][j].origin_y - MAX_MOVE_Y){
+		if(self.points[i][j].y < self.points[i][j].origin_y - MAX_MOVE_Y){
+			self.points[i][j].velocity_y = self.randomVelocity();
 			self.points[i][j].y += Math.abs(self.points[i][j].velocity_y) * self.points[i][j].speed_y;
 		}else{
 			self.points[i][j].y += Math.abs(self.points[i][j].velocity_y) * self.points[i][j].speed_y;
@@ -181,6 +216,28 @@ var Grid = function(canvasId,size){
 		self.drawPoints();
 		self.drawLine();
 	};
+
+	this.mouseNearest = function(evt){
+		// var pos = self.getMousePos(evt);
+
+		// var triNear = []; // array of 3 points, nearest of the mouse position
+
+		// var points_lx = this.points.length;
+		// // get length of y axis, 0 because all line are equal;
+		// var points_ly = this.points[0].length;
+
+		// for(var i = 0; i < points_lx; i++){
+		// 	for(var j = 0; j < points_lx; j++){
+
+		// 		// for(var k = 0; k < 3; i ++){
+		// 			if(pos.x < triNear[0]){
+
+		// 			}
+		// 		// }
+		// 	}
+		// }
+	};
+
 };
 
 var t,c;
@@ -191,6 +248,7 @@ function start(){
 	c.generateGrid();
 	// c.drawPoints();
 	// c.drawLine();
+	c.enableMouseListener(true);
 
 	t = setInterval(function(){
 		c.annimate();
