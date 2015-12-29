@@ -108,7 +108,7 @@ var Point = function(x,y,vx,vy,size,sx,sy){
 var Grid = function(canvasId,size){
 	var self = this;
 	this.self = self;
-	this.mousePos;
+	this.mousePos=0;
 	this.isMouseEnabled = false;
 	this.canvas = document.getElementById(canvasId);
 
@@ -197,9 +197,9 @@ var Grid = function(canvasId,size){
 		}
 	};
 	this.setMousePos = function(evt) {
-		console.log(evt);
+		//console.log(evt);
 		var rect = self.canvas.getBoundingClientRect();
-		console.log(evt.clientX - rect.left, evt.clientY - rect.top);
+		//console.log(evt.clientX - rect.left, evt.clientY - rect.top);
 		self.mousePos = {
 			x: evt.clientX - rect.left,
 			y: evt.clientY - rect.top
@@ -215,7 +215,7 @@ var Grid = function(canvasId,size){
 	};
 
 	this.getMousePos = function() {
-		console.log(self.mousePos);
+		//console.log(self.mousePos);
 		return self.mousePos;
 	};
 
@@ -236,9 +236,9 @@ var Grid = function(canvasId,size){
 				self.ctx.moveTo(self.points[i][j].x, self.points[i][j].y);
 				self.ctx.lineTo(self.points[i][j].links[2].x, self.points[i][j].links[2].y);
 				if(self.isMouseEnabled){
-					console.log("event lel ");
+					//console.log("event lel ");
 					if(self.ctx.isPointInPath(self.getMousePos().x, self.getMousePos().y)){
-						console.log("HUEHUEUHE", self.getMousePos());
+					//	console.log("HUEHUEUHE", self.getMousePos());
 					}
 				}
 				self.ctx.stroke();

@@ -79,3 +79,25 @@ var informations = new Onglet('#informations');
 var projets = new Onglet('#projets');
 var cv = new Onglet('#cv');
 var contacts = new Onglet('#contacts');
+
+var cvAnim = function(){
+	
+	this.self = this;
+	this.divFP;
+	this.canvas = document.createElement('canvas');
+	this.canvas.id = 'canvas-cv';
+
+	this.clear = function(){
+		divFP = document.getElementById('pos-cv');
+		divFP.innerHTML="";
+	};
+
+	this.addScene = function(){
+		divFP.appendChild(canvas); // adds the canvas to the body element
+	};
+
+	this.setup = function(){
+		self.clear();
+		self.addScene();
+	};
+}
