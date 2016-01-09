@@ -11,7 +11,6 @@ body {
 .container {
   float: left;
   display: block;
-  height: 100vh;
   top: 0;
   bottom: 0;
   width: 100%;
@@ -55,13 +54,23 @@ body {
   #menu-side {
     display: none;
   }
+  #menu-top {
+    min-height: 32px;
+    margin-top: 0%;
+    padding: 15px 0px 0px 15px;
+    width: 100%;
+    position: fixed;
+    background-color: #FFF;
+    color: #000;
+    z-index: 5 !important;
+  }
   .onglet {
     width: 100%;
     color: #000;
-    border: 1px solid #F50;
     text-decoration: none;
-    list-style-type: none;
     background-color: #fff;
+    padding: 9px 0 0 0;
+    margin-bottom: 11px;
   }
 }
 .onglet-select {
@@ -71,6 +80,9 @@ body {
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.75);
+}
+.hidden {
+  display: none;
 }
 @media (min-width: 799px) {
   .title {
@@ -329,6 +341,12 @@ p a {
 a:hover {
   color: #FF5500;
 }
+li {
+  list-style-type: none;
+}
+.onglet a {
+  color: #000;
+}
 .fullscreen {
   min-height: 100vh;
 }
@@ -376,4 +394,18 @@ a:hover {
 }
 .demo {
   border: 1px dashed rgba(255, 255, 255, 0.4);
+}
+.icon-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: #000;
+}
+.icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+.hamburger {
+  width: 24px;
+  color: #000;
 }

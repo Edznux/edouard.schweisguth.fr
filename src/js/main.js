@@ -82,6 +82,30 @@ var projets = new Onglet('#projets');
 var cv = new Onglet('#cv');
 var contacts = new Onglet('#contacts');
 
+
+var menuTop = document.querySelector("#menu-top");
+var hamburger = document.querySelector("#menu-top>.hamburger");
+var ongletTop = document.querySelectorAll('#menu-top>.onglet');
+
+// hide menu if link clicked (touched)
+for(var i=0;i<ongletTop.length; i++){
+	ongletTop[i].addEventListener("click", function(evt){
+		console.log("lien clicked");
+		for(var i=0;i<ongletTop.length; i++){
+			ongletTop[i].classList.toggle('hidden');
+		}
+	});
+}
+
+// show / hide menu if click on hamburger
+hamburger.addEventListener("click",function(evt){
+	console.log('click yeay menu');
+	for(var i=0;i<ongletTop.length; i++){
+		ongletTop[i].classList.toggle('hidden');
+	}
+});
+
+
 var cvAnim = function(){
 	
 	this.self = this;
