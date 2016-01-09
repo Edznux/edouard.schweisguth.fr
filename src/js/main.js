@@ -18,10 +18,11 @@ var Onglet = function(name){
 	this.getMainEl = document.getElementById("pos-"+this.purename);
 
 	/*
-	* Click to goto page => TODO smooth scroll ?
+	* Click to goto page with smooth scroll
 	*/
-	this.el.addEventListener('click',function(){
-		window.scrollTo(0,self.getMainEl.offsetTop);
+	$("#"+self.purename).on('click', function() {
+		var speed = 650;
+		$('html, body').animate( { scrollTop: $(self.getMainEl).offset().top }, speed );
 	});
 
 	/*
@@ -32,6 +33,7 @@ var Onglet = function(name){
 	window.addEventListener('scroll',scrollHandler);
 	window.addEventListener('load',scrollHandler);
 
+
 	/*
 	* private function
 	*/
@@ -39,7 +41,7 @@ var Onglet = function(name){
 		var scrollTop = window.scrollY * 1.2; // more smooth
 		
 		if(scrollTop >= self.getMainEl.offsetTop &&
-		   scrollTop <= self.getMainEl.offsetHeight + self.getMainEl.offsetTop){
+			scrollTop <= self.getMainEl.offsetHeight + self.getMainEl.offsetTop){
 		
 			self.select();
 		}else{

@@ -18,10 +18,11 @@ var Onglet = function(name){
 	this.getMainEl = document.getElementById("pos-"+this.purename);
 
 	/*
-	* Click to goto page => TODO smooth scroll ?
+	* Click to goto page with smooth scroll
 	*/
-	this.el.addEventListener('click',function(){
-		window.scrollTo(0,self.getMainEl.offsetTop);
+	$("#"+self.purename).on('click', function() {
+		var speed = 650;
+		$('html, body').animate( { scrollTop: $(self.getMainEl).offset().top }, speed );
 	});
 
 	/*
@@ -32,6 +33,7 @@ var Onglet = function(name){
 	window.addEventListener('scroll',scrollHandler);
 	window.addEventListener('load',scrollHandler);
 
+
 	/*
 	* private function
 	*/
@@ -39,7 +41,7 @@ var Onglet = function(name){
 		var scrollTop = window.scrollY * 1.2; // more smooth
 		
 		if(scrollTop >= self.getMainEl.offsetTop &&
-		   scrollTop <= self.getMainEl.offsetHeight + self.getMainEl.offsetTop){
+			scrollTop <= self.getMainEl.offsetHeight + self.getMainEl.offsetTop){
 		
 			self.select();
 		}else{
@@ -78,7 +80,30 @@ var accueil = new Onglet('#accueil');
 var informations = new Onglet('#informations');
 var projets = new Onglet('#projets');
 var cv = new Onglet('#cv');
-var contacts = new Onglet('#contacts');;var DEFAULT_RANDOM_DECAL = 45;
+var contacts = new Onglet('#contacts');
+
+var cvAnim = function(){
+	
+	this.self = this;
+	this.divFP;
+	this.canvas = document.createElement('canvas');
+	this.canvas.id = 'canvas-cv';
+
+	this.clear = function(){
+		divFP = document.getElementById('pos-cv');
+		divFP.innerHTML="";
+	};
+
+	this.addScene = function(){
+		divFP.appendChild(canvas); // adds the canvas to the body element
+	};
+
+	this.setup = function(){
+		self.clear();
+		self.addScene();
+	};
+}
+;var DEFAULT_RANDOM_DECAL = 45;
 var DEFAULT_RANDOM_VELOCITY = 1;
 var MAX_MOVE_X = 16;
 var MAX_MOVE_Y = 16;
@@ -322,7 +347,8 @@ var Grid = function(canvasId,size){
 
 var t,c;
 function start(){
-	c = new Grid("canvas",17);
+
+	c = new Grid("canvas",16);
 
 	c.init();
 	c.generateGrid();
@@ -335,12 +361,12 @@ function start(){
 	},55);
 }
 
-function reset(){
+function res(){
 	delete c;
 	c = "";
 	clearInterval(t);
 	start();
 }
 
-window.addEventListener('load',start);
-window.addEventListener('resize',start);
+window.addEventListener('load',res);
+window.addEventListener('resize',res);

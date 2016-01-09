@@ -242,7 +242,8 @@ var Grid = function(canvasId,size){
 
 var t,c;
 function start(){
-	c = new Grid("canvas",17);
+
+	c = new Grid("canvas",16);
 
 	c.init();
 	c.generateGrid();
@@ -255,12 +256,12 @@ function start(){
 	},55);
 }
 
-function reset(){
+function res(){
 	delete c;
 	c = "";
 	clearInterval(t);
 	start();
 }
 
-window.addEventListener('load',start);
-window.addEventListener('resize',start);
+window.addEventListener('load',res);
+window.addEventListener('resize',res);
