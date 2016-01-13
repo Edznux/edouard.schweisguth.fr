@@ -130,6 +130,15 @@ body {
 	top: 8%;
 	position: relative;
 }
+@media (max-width: 800px) {
+	.projets{
+		margin: 0 10%;
+		width: 80%;
+		font-size: 1.2em;
+		top: 8%;
+		position: relative;
+	}
+}
 
 .projet{
 	margin-top: 25px;
@@ -267,6 +276,7 @@ p.description{
 //############ Contacts #########
 .social{
 	width: 100%;
+	min-height: 50px;
 	text-align:center;
 	font-weight: 300;
 }
@@ -286,7 +296,7 @@ p.description{
 	.contact-box{
 		background-color: #FFFFFF;
 		width:35%;
-		margin:0 auto;
+		margin:60px auto;
 		z-index: 4;
 		top:10%;
 		padding: 20px;
@@ -298,6 +308,7 @@ p.description{
 }
 @media (max-width: 799px) {
 	.social>a{
+		background-color: #fff;
 		color:#212121;
 		text-decoration: none;
 		width: 100%;
@@ -305,12 +316,12 @@ p.description{
 		float: left;
 	}
 	.contact-box{
-		background-color: #FFFFFF;
+		// background-color: #FFFFFF;
 		width:100%;
-		margin:0 auto;
+		// margin:0 auto;
 		z-index: 4;
 		top:10%;
-		padding: 20px;
+		padding-top: 20px;
 		font-size: 1.5em;
 	}
 }
