@@ -8,21 +8,22 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<script type="text/javascript">
-   (function(t,e){var n=t.amplitude||{};var r=e.createElement("script");r.type="text/javascript";
-   r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.5.0-min.gz.js";
-   r.onload=function(){t.amplitude.runQueuedFunctions()};var s=e.getElementsByTagName("script")[0];
-   s.parentNode.insertBefore(r,s);var i=function(){this._q=[];return this};function o(t){
-   i.prototype[t]=function(){this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
-   return this}}var a=["add","set","setOnce","unset"];for(var u=0;u<a.length;u++){o(a[u]);
-   }n.Identify=i;n._q=[];function c(t){n[t]=function(){n._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
-   }}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify"];
-   for(var p=0;p<l.length;p++){c(l[p])}t.amplitude=n})(window,document);
-
-   amplitude.init("203d60b22a9f94476781db62e96cc466");
+	(function(t,e){var n=t.amplitude||{};var r=e.createElement("script");r.type="text/javascript";
+	r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.5.0-min.gz.js";
+	r.onload=function(){t.amplitude.runQueuedFunctions()};var s=e.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(r,s);var i=function(){this._q=[];return this};function o(t){
+	i.prototype[t]=function(){this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+	return this}}var a=["add","set","setOnce","unset"];for(var u=0;u<a.length;u++){o(a[u]);
+	}n.Identify=i;n._q=[];function c(t){n[t]=function(){n._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+	}}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify"];
+	for(var p=0;p<l.length;p++){c(l[p])}t.amplitude=n})(window,document);
+	amplitude.init("203d60b22a9f94476781db62e96cc466");
 	amplitude.logEvent("VIEW");
+
  </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="app" ng-controller="mainController">
 	<ul id="menu-top">
 		<li class="hamburger">
 			<span class="icon-bar"></span>
@@ -72,11 +73,7 @@
 		</div>
 
 		<div class="text front">
-			<p class="main-description">
-				Hey, <br/>
-				Je suis Edouard, étudiant en licence 3 informatique. <br />
-				Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href="http://github.com/edznux/">Github</a>.
-			</p>
+			<p class="main-description" ng-bind-html="description"></p>
 		</div>
 	</div>
 
@@ -87,9 +84,7 @@
 			</div>
 		</div>
 		<div class="text">
-			<p class="description">
-				Développeur autodidacte, j'apprends avec envie de nombreuses nouvelles technologies de développement que j'utilise au fur et à mesure dans mes projets personnels et lors de stages. J'ai eu l'occasion de travailler avec le framework <span class="laravel">Laravel</span> en entreprise dans une startup naissante. Je maitrise le javascript et nombre de ces librairies et/ou frameworks (<span class="nodejs">NodeJs</span>, JQuery, <span class="angular">Angular</span>, <span class="sails">Sails</span>). J'apprends aussi d'autres technologies web telle que Ruby On Rails, pour élargir mes compétences. En plus de ces nnes connaissances en dévéloppement, je poss?les bases de la sécurité, de la gestion de serveur Linux ainsi que des bases de données SQL et NoSQL. 
-			</p>
+			<p class="description" ng-bind-html="informations"></p>
 		</div>
 	</div>
 	
@@ -100,136 +95,56 @@
 			</div>
 		</div>
 		<div class="projets front">
-		<div class="projet-left">
-			
-			<div class="projet" id="hubot-ethereum">
-				<div class="projet-main-box">
-					<div class="projet-title">
-						Hubot-ethereum
+			<div class="projet-left">
+				<div  ng-repeat="projet in projetLeft">
+					<div class="projet"  id="{{projet.id}}">
+						<div class="projet-main-box">
+							<div class="projet-title">
+								{{projet.title}}
+							</div>
+							<div class="projet-date">
+								{{projet.date}}
+							</div>
+						</div>
+						<div class="btn github">
+							<a ng-href="{{projet.buttons.github}}">Github</a>
+						</div>
+						<div class="btn demo">
+							<a ng-href="{{projet.buttons.demo}}">Demo</a>
+						</div>
+						<div class="projet-desc" ng-bind-html="projet.description | to_trusted"></div>
+						<div class="tech">
+							<ul class="tags">
+								<li ng-repeat="tag in  projet.tags">{{tag}}</li>
+							</ul>
+						</div>
 					</div>
-					<div class="projet-date">
-						2016
-					</div>
-				</div>
-				<div class="btn github">
-					<a href="https://github.com/edznux/hubot-btc" target="_blank">Github</a>
-				</div>
-				
-				<div class="projet-desc">
-					Robot textuel basé sur hubot. Il permet de récupéré des informations avancée sur le reseau Ethereum. Disponible sous forme de packet npm (<a href="https://www.npmjs.com/package/hubot-ethereum">hubot-ethereum</a>)
-				</div>
-
-				<div class="tech">
-					<ul class="tags">
-						<li>nodejs</li>
-						<li>ethereum</li>
-						<li>redis</li>
-						<li>npm</li>
-					</ul>
 				</div>
 			</div>
-			<div class="projet" id="hubot-btc">
-				<div class="projet-main-box">
-					<div class="projet-title">
-						Hubot-btc
+			<div class="projet-right">
+				<div class="projet" ng-repeat="projet in projetRight" id="{{projet.id}}">
+					<div class="projet-main-box">
+						<div class="projet-title">
+							{{projet.title}}
+						</div>
+						<div class="projet-date">
+							{{projet.date}}
+						</div>
 					</div>
-					<div class="projet-date">
-						2016
+					<div class="btn github">
+						<a ng-href="{{projet.buttons.github}}">Github</a>
 					</div>
-				</div>
-				<div class="btn github">
-					<a href="https://github.com/edznux/hubot-btc" target="_blank">Github</a>
-				</div>
-				
-				<div class="projet-desc">
-					Robot textuel basé sur hubot. Il permet de récupéré des informations sur le bitcoin et les différentes addresse fournis par l'utilisateur. Disponible sous forme de packet npm (<a href="https://www.npmjs.com/package/hubot-btc">hubot-btc</a>)
-				</div>
-
-				<div class="tech">
-					<ul class="tags">
-						<li>nodejs</li>
-						<li>ethereum</li>
-						<li>redis</li>
-						<li>npm</li>
-					</ul>
+					<div class="btn demo">
+						<a ng-href="{{projet.buttons.demo}}">Demo</a>
+					</div>
+					<div class="projet-desc" ng-bind-html="projet.description | to_trusted"></div>
+					<div class="tech">
+						<ul class="tags">
+							<li ng-repeat="tag in  projet.tags">{{tag}}</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div class="projet" id="site">
-				<div class="projet-main-box">
-					<div class="projet-title">
-						edouard.schweisguth.fr
-					</div>
-					<div class="projet-date">
-						2015
-					</div>
-				</div>
-				<div class="btn github">
-					<a href="https://github.com/edznux/edouard.schweisguth.fr" target="_blank">Github</a>
-				</div>
-				<div class="projet-desc">
-					Site vitrine que vous visitez actuellement. Version HTTPS grâce aux certificats Let's Encrypt.
-				</div>
-				<div class="tech">
-					<ul class="tags">
-						<li>frontend</li>
-						<li>https</li>
-						<li>nginx</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="projet-right">
-			
-			<div class="projet" id="urlshortner">
-				<div class="projet-main-box">
-					<div class="projet-title">
-						UrlShortner
-					</div>
-					<div class="projet-date">
-						2015
-					</div>
-				</div>
-				<div class="btn github">
-					<a href="https://github.com/edznux/urlshortner" target="_blank">Github</a>
-				</div>
-				<div class="btn demo">
-					<a href="http://monitor.edznux.fr" target="_blank">Demo</a>
-				</div>
-				<div class="projet-desc">
-					Projet de raccourciceur d'url, basé sur Ruby On Rails, analyse basique du nombre de vues.
-				</div>
-				<div class="tech">
-					<ul class="tags">
-						<li>ruby on rails</li>
-						<li>mysql</li>
-					</ul>
-				</div>
-			</div>
-			<div class="projet" id="monitorjs">
-				<div class="projet-main-box">
-					<div class="projet-title">
-						MonitorJS
-					</div>
-					<div class="projet-date">
-						2014
-					</div>
-				</div>
-				<div class="btn github">
-					<a href="https://github.com/edznux/monitorjs" target="_blank">Github</a>
-				</div>
-				<div class="projet-desc">
-					Système de monitoring et d'analytics basique basé sur NodeJS
-				</div>
-
-				<div class="tech">
-					<ul class="tags">
-						<li>nodejs</li>
-						<li>mongodb</li>
-						<li>angular</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		</div>
 		<!-- <div class="more">Plus de projets...</div> -->
 	</div>
@@ -272,29 +187,16 @@
 			</div>
 			<div class="social">
 				<div class="message">
-					<div class="ethereum">
-						<img src="assets/ethereum.svg" class="ethereum-logo" alt="Ethereum logo">
-						<span>
-							<a href="https://ethereum.org">Ethereum</a> : 0x1ee3797c74b516befbb172eb3e306d70e9446d1a<br />
-						</span>
-					</div>
-					<div class="bitcoin">
-						<img src="assets/bitcoin.svg" class="bitcoin-logo" alt="Bitcoin logo">
-						<span>
-							<a href="https://bitcoin.org">Bitcoin</a> : 1KJUCouUBvRi5CagnDpzdeiQ9zdYSEYPrX<br />
-						</span>
+					<div ng-repeat="coin in contact.blockchain">
+						<div class="{{coin.name}}">
+							<img ng-src="{{coin.logo}}" class="{{coin.name}}-logo" alt="{{coin.name}} logo">
+							<span>
+								<a href="{{coin.link}}">{{coin.name}}</a> : {{coin.address}}<br />
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- 
-			<div class="form-box">
-				<input type="text" class="contact-input" name="name" placeholder="Nom">
-				<input type="text" class="contact-input" name="name" placeholder="Email">
-				<span class="message">Message</span>
-				<textarea class="contact-input"></textarea>
-				<input type="submit" class="contact-submit" value="Envoyer">
-			</div>
-			 -->
 		</div>
 	</div>
 	<canvas id="canvas"></canvas>

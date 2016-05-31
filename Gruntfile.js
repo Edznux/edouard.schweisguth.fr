@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['src/js/main.js','src/js/canvas.js'],// 'src/js/project.js', 'src/js/outro.js'],
+        src: ['src/js/app.js', 'src/js/main.js','src/js/canvas.js'],// 'src/js/project.js', 'src/js/outro.js'],
         dest: 'assets/js/main.js',
       },
     },
