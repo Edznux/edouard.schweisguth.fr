@@ -106,16 +106,20 @@
 								{{projet.date}}
 							</div>
 						</div>
-						<div class="btn github">
-							<a ng-href="{{projet.buttons.github}}">Github</a>
+						<div ng-if="projet.buttons.github !== undefined">
+							<div class="btn github">
+								<a ng-href="{{projet.buttons.github}}">Github</a>
+							</div>
 						</div>
-						<div class="btn demo">
-							<a ng-href="{{projet.buttons.demo}}">Demo</a>
+						<div ng-if="projet.buttons.demo !== undefined">
+							<div class="btn demo">
+								<a ng-href="{{projet.buttons.demo}}">Demo</a>
+							</div>
 						</div>
 						<div class="projet-desc" ng-bind-html="projet.description | to_trusted"></div>
 						<div class="tech">
 							<ul class="tags">
-								<li ng-repeat="tag in  projet.tags">{{tag}}</li>
+								<li ng-repeat="tag in projet.tags"><a ng-href="{{tags[tag].link}}">{{tag}}</a></li>
 							</ul>
 						</div>
 					</div>
@@ -131,16 +135,20 @@
 							{{projet.date}}
 						</div>
 					</div>
-					<div class="btn github">
-						<a ng-href="{{projet.buttons.github}}">Github</a>
+					<div ng-if="projet.buttons.github !== undefined">
+						<div class="btn github">
+							<a ng-href="{{projet.buttons.github}}">Github</a>
+						</div>
 					</div>
-					<div class="btn demo">
-						<a ng-href="{{projet.buttons.demo}}">Demo</a>
+					<div ng-if="projet.buttons.demo !== undefined">
+						<div class="btn demo">
+							<a ng-href="{{projet.buttons.demo}}">Demo</a>
+						</div>
 					</div>
 					<div class="projet-desc" ng-bind-html="projet.description | to_trusted"></div>
 					<div class="tech">
 						<ul class="tags">
-							<li ng-repeat="tag in  projet.tags">{{tag}}</li>
+							<li ng-repeat="tag in projet.tags"><a ng-href="{{tags[tag].link}}">{{tag}}</a></li>
 						</ul>
 					</div>
 				</div>

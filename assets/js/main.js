@@ -8,6 +8,7 @@ angular.module('app', [])
 		$scope.description = $sce.trustAsHtml(response.data.description.text);
 		$scope.informations = $sce.trustAsHtml(response.data.info.text);
 		$scope.contact = response.data.contact;
+		$scope.tags = response.data.tags;
 		formatProjet(response.data.projets);
 	});
 

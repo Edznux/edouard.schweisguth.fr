@@ -13,7 +13,7 @@
 			"buttons": {
 				"github" : "https://github.com/edznux/hubot-btc"
 			},
-			"description" : "Robot textuel basé sur hubot. Il permet de récupéré des informations avancée sur le reseau Ethereum. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-ethereum\">hubot-ethereum</a>",
+			"description" : "Robot textuel basé sur hubot. Il permet de récupéré des informations avancée sur le reseau Ethereum. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-ethereum\">hubot-ethereum</a>)",
 			"tags" : ["nodejs", "ethereum", "redis", "npm"]
 		},
 		{
@@ -75,5 +75,47 @@
 					"link":"https://bitcoin.org"
 				}
 			]
+	},
+	"tags": {
+		"ror":{
+			"title": "Ruby On Rails",
+			"link" :"http://rubyonrails.org/" 
+		},
+		"nodejs":{
+			"title":"Node JS",
+			"link": "https://nodejs.org/"
+		},
+		"mongodb":{
+			"title": "MongoDB",
+			"link":"https://www.mongodb.com"
+		},
+		"redis":{
+			"tile":"Redis",
+			"link":"https://redis.io"
+		},
+		"npm":{
+			"title":"npm",
+			"link":"https://npmjs.com/"
+		},
+		"angular":{
+			"title":"Angular JS",
+			"link":"https://angularjs.org/"
+		},
+		"mysql":{
+			"title":"MySQL",
+			"link":"https://www.mysql.com/"
+		},
+		"nginx":{
+			"title":"NGINX",
+			"link":"http://nginx.org/"
+		},
+		"ethereum":{
+			"title":"Ethereum",
+			"link":"https://ethereum.org"
+		},
+		"bitcoin":{
+			"title":"Bitcoin",
+			"link":"https://bitcoin.org"
+		}
 	}
 }
