@@ -1,6 +1,6 @@
 {
 	"description" : {
-		"text":"Hey, <br/> Je suis Edouard, étudiant en Master Sécurité Informatique en Alternance (CFA-AFTI / UMPC). <br /> Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href=\"http://github.com/edznux/\">Github</a>."
+		"text":"Hey, <br/> Je suis Edouard, étudiant en Master Sécurité Informatique en Alternance <a href=\"http://www.cfa-afti.com/programmes/msi/\">(CFA-AFTI / UMPC)</a>. <br /> Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href=\"http://github.com/edznux/\">Github</a>."
 	},
 	"info" : {
 		"text":"Passioné , j'apprends avec envie de nombreuses nouvelles technologies de développement que j'utilise au fur et à mesure dans mes projets personnels et lors de stages. J'ai eu l'occasion de travailler avec le framework <span class=\"laravel\">Laravel</span> en entreprise dans une startup naissante. Je maitrise le javascript et nombre de ces librairies et/ou frameworks (<span class=\"nodejs\">NodeJs</span>, JQuery, <span class=\"angular\">Angular</span>, <span class=\"sails\">Sails</span>). J'apprends aussi d'autres technologies web telle que Ruby On Rails, pour élargir mes compétences. En plus de ces bonnes connaissances en dévéloppement, je possède les bases de la sécurité, de la gestion de serveur Linux ainsi que des bases de données SQL et NoSQL. Toujours à la recherche de nouvelles connaissances je m'essaie à divers challenges de sécurité et de développement."
