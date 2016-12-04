@@ -1,0 +1,121 @@
+{
+	"description" : {
+		"text":"Hey, <br/> Je suis Edouard, étudiant en Master Sécurité Informatique en Alternance <a href="http://www.cfa-afti.com/programmes/msi/">(CFA-AFTI / UMPC)"</a>. <br /> Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href=\"http://github.com/edznux/\">Github</a>."
+	},
+	"info" : {
+		"text":"Passioné , j'apprends avec envie de nombreuses nouvelles technologies de développement que j'utilise au fur et à mesure dans mes projets personnels et lors de stages. J'ai eu l'occasion de travailler avec le framework <span class=\"laravel\">Laravel</span> en entreprise dans une startup naissante. Je maitrise le javascript et nombre de ces librairies et/ou frameworks (<span class=\"nodejs\">NodeJs</span>, JQuery, <span class=\"angular\">Angular</span>, <span class=\"sails\">Sails</span>). J'apprends aussi d'autres technologies web telle que Ruby On Rails, pour élargir mes compétences. En plus de ces bonnes connaissances en dévéloppement, je possède les bases de la sécurité, de la gestion de serveur Linux ainsi que des bases de données SQL et NoSQL. Toujours à la recherche de nouvelles connaissances je m'essaie à divers challenges de sécurité et de développement."
+	},
+	"projets" : [
+		{
+			"id":"hubot-ethereum",
+			"title":"Hubot-ethereum", 
+			"date": 2016,
+			"buttons": {
+				"github" : "https://github.com/edznux/hubot-btc"
+			},
+			"description" : "Robot textuel basé sur hubot. Il permet de récupéré des informations avancée sur le reseau Ethereum. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-ethereum\">hubot-ethereum</a>)",
+			"tags" : ["nodejs", "ethereum", "redis", "npm"]
+		},
+		{
+			"id":"hubot-btc",
+			"title":"Hubot-btc", 
+			"date": 2016,
+			"buttons": {
+				"github" : "https://github.com/edznux/hubot-btc"
+			},
+			"description" : "Robot textuel basé sur hubot. Il permet de récupéré des informations sur le bitcoin et les différentes addresse fournis par l'utilisateur. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-btc\">hubot-btc</a>)",
+			"tags" : ["nodejs", "bitcoin", "redis", "npm"]
+		},
+		{
+			"id":"site",
+			"title":"edouard.schweisguth.fr",
+			"date":2016,
+			"buttons":{
+				"github": "https://github.com/edznux/edouard.schweisguth.fr",
+				"demo":"https://edouard.schweisguth.fr/"
+			},
+			"description" : "Site vitrine que vous visitez actuellement. Disponible en HTTPS grace à Let's Encrypt, utilise AngularJS.",
+			"tags" : ["nginx","angular", "https", "frontend"]
+		},
+		{
+			"id":"urlshortner",
+			"title":"UrlShortner",
+			"date":2015,
+			"buttons":{
+				"github":"https://github.com/edznux/urlshortner",
+				"demo":"http://short.edznux.fr"
+			},
+			"description":"Projet de raccourciceur d'url, basé sur Ruby On Rails, analyse basique du nombre de vues.",
+			"tags":["ruby on rails", "mysql"]
+		},
+		{
+			"id":"monitorjs",
+			"title":"Monitor JS",
+			"date":2014,
+			"buttons":{
+				"github":"https://github.com/edznux/monitorjs",
+				"demo":"http://monitor.edznux.fr"
+			},
+			"description":"Système de monitoring et d'analytics basique basé sur NodeJS",
+			"tags":["nodejs","mongodb","angular"]
+		}
+	],
+	"contact":{
+		"blockchain":[
+				{
+					"name":"ethereum",
+					"address":"0x1ee3797c74b516befbb172eb3e306d70e9446d1a",
+					"logo":"assets/ethereum.svg",
+					"link":"https://ethereum.org"
+				},
+				{
+					"name":"bitcoin",
+					"address":"1KJUCouUBvRi5CagnDpzdeiQ9zdYSEYPrX",
+					"logo":"assets/bitcoin.svg",
+					"link":"https://bitcoin.org"
+				}
+			]
+	},
+	"tags": {
+		"ror":{
+			"title": "Ruby On Rails",
+			"link" :"http://rubyonrails.org/" 
+		},
+		"nodejs":{
+			"title":"Node JS",
+			"link": "https://nodejs.org/"
+		},
+		"mongodb":{
+			"title": "MongoDB",
+			"link":"https://www.mongodb.com"
+		},
+		"redis":{
+			"tile":"Redis",
+			"link":"https://redis.io"
+		},
+		"npm":{
+			"title":"npm",
+			"link":"https://npmjs.com/"
+		},
+		"angular":{
+			"title":"Angular JS",
+			"link":"https://angularjs.org/"
+		},
+		"mysql":{
+			"title":"MySQL",
+			"link":"https://www.mysql.com/"
+		},
+		"nginx":{
+			"title":"NGINX",
+			"link":"http://nginx.org/"
+		},
+		"ethereum":{
+			"title":"Ethereum",
+			"link":"https://ethereum.org"
+		},
+		"bitcoin":{
+			"title":"Bitcoin",
+			"link":"https://bitcoin.org"
+		}
+	}
+}
