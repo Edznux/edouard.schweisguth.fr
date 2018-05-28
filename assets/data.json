@@ -7,8 +7,8 @@
 	},
 	"info" : {
 		"text": {
-			"fr":"Développeur passionné avec un attrait pour la sécurité offensive, je suis en cours de finir mon Master Sécurité Informatique. Je participes dès que possibles à divers évenements de sécurité : CTFs (online & offline), conférences (SSTIC, DEFCON) et m'exerces sur différents sites de challenges de sécurité informatique. Étant créatif et curieux par nature, j'aimes (re-)écrire mes outils afin de comprendre leurs fonctionnement.",
-			"en":"Passionate developer with a fascination about offensive security, I'm graduating on my Infosec's Master (Master Sécurité Information). I try to attend or try as much as possible security events : CTFs (online & offline), conferences (SSTIC, DEFCON) and try to keep my skills sharp on several infosec challenges. Creative and curious by nature, I like (re-)doing tools to get a better understanding on how they works."
+			"fr":"Développeur passionné avec un attrait pour la sécurité offensive, je suis en cours de finir mon Master Sécurité Informatique. Je participe dès que possible à divers évenements de sécurité : CTFs (online & offline), conférences (SSTIC, DEFCON) et m'exerce sur différents sites de challenges de sécurité informatique. Étant créatif et curieux par nature, j'aime (re-)écrire mes outils afin de comprendre le fonctionnement des choses.",
+			"en":"Passionate developer with a fascination about offensive security, I'm graduating my Infosec's Master (Master Sécurité Information). I try to attend or try as much as possible security events : CTFs (online & offline), conferences (SSTIC, DEFCON) and try to keep my skills sharp with several infosec challenges. Creative and curious by nature, I like (re-)doing tools to get a better understanding on how things works."
 		}
 	},
 	"projets" : [
@@ -20,7 +20,7 @@
 				"github": "https://github.com/netm4ul/netm4ul"
 			},
 			"description": {
-				"fr": "Outil de reconnaissance et de test d'intrusion automatisé et distribué",
+				"fr": "Outil de reconnaissance et de test d'intrusions distribué et automatisé",
 				"en": "Automated distributed recon & pentest tool"
 			},
 			"tags": [
