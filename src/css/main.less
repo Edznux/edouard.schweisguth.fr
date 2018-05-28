@@ -7,11 +7,20 @@ body {
 	font-family: 'Roboto';
 	color: #FFF;
 }
+.langs{
+	display: block;
+	position: absolute !important;
+	margin: 10px 0px 0px 10px;
+}
+.lang{
+	width: 30px;
+	height: 24px;
+}
 .container{
 	float: left;
-	display:block;
-	top:0;
-	bottom:0;
+	display: block;
+	top: 0;
+	bottom: 0;
 	width: 100%;
 	position: relative;
 }
@@ -262,21 +271,21 @@ p.description{
 //TODO : MEDIA QUERY => full size mobile (stack)
 @media (min-width: 799px) {
 	.cv{
-		margin: 0px auto;
-		width: 45%;
-		padding-left: 5%; 
+		width: 100%;
 	}
-	.cv-spacer{
-		width:10%;
-		float: left;
-	}
+	
 	.cv-box{
-		width: 50%;
-		float: left;
+		margin-top: 20vh;
+		width: 300px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.cv-exp{
 		float: left;
 		margin-top: 4px;
+		width: 100%;
+		text-align: center;
 	}
 	.cv-btn{
 		background-color: #FFF;
@@ -323,12 +332,15 @@ p.description{
 //############ Contacts #########
 .social{
 	width: 100%;
-	min-height: 50px;
+	min-height: 150px;
 	text-align:center;
 	font-weight: 300;
 }
 
-@media (min-width: 799px) {
+@media (min-width: 1160px) {
+	.social{
+		padding-top:100px;
+	}
 	.social>a{
 		color:#212121;
 		text-decoration: none;
@@ -353,7 +365,7 @@ p.description{
 				box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.75);
 	}
 }
-@media (max-width: 799px) {
+@media (max-width: 1159px) {
 	.social>a{
 		color:#212121;
 		text-decoration: none;
@@ -458,11 +470,17 @@ li {
 .angular{
 	color: #ff4040;
 }
-.laravel{
-	color: #F4645F;
+.orange{
+	color: #FF7900;
 }
-.sails{
-	color: #41bac2;
+.github{
+	color: #24292e;
+}
+.github-logo{
+	width: 43px;
+	height: 43px;
+	display: block;
+	float:left;
 }
 .btn{
 	display: inline-block;
@@ -475,7 +493,7 @@ li {
 	float: left;
 	padding: 2px 4px;
 }
-.github{
+.github-block{
 	border: 1px dashed rgba(255,255,255,0.4);
 }
 .demo{

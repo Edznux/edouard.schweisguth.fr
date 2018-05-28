@@ -1,16 +1,31 @@
 
 angular.module('app', [])
 .controller('mainController', function($scope, $http, $sce) {
+	var userLang = navigator.language || navigator.userLanguage; 
+	
+	$scope.setLang = function setLang(lang) {
+		var userNormalizedLang = "en"
+		isFr = (/fr-?/).test(lang)
+		if (isFr) {
+			userNormalizedLang = "fr"
+		}
+		console.log("change lang ! : ", userNormalizedLang)
+		$scope.userNormalizedLang = userNormalizedLang
+	}
+	$scope.getData = function(){
+		$http.get("assets/data.json")
+		.then(function(response) {
+			$scope.data = response.data;
+			$scope.description = response.data.description.text;
+			$scope.informations = response.data.info.text;
+			$scope.contact = response.data.contact;
+			$scope.tags = response.data.tags;
+			formatProjet(response.data.projets);
+		});
+	}
 
-	$http.get("assets/data.json")
-	.then(function(response) {
-		$scope.data = response.data;
-		$scope.description = $sce.trustAsHtml(response.data.description.text);
-		$scope.informations = $sce.trustAsHtml(response.data.info.text);
-		$scope.contact = response.data.contact;
-		$scope.tags = response.data.tags;
-		formatProjet(response.data.projets);
-	});
+	$scope.getData()
+	$scope.setLang(userLang)
 
 	function formatProjet(projets){
 		projetLeft = [];
@@ -26,10 +41,9 @@ angular.module('app', [])
 		}
 		$scope.projetRight = projetRight;
 		$scope.projetLeft = projetLeft;
-		console.log($scope)
-
 	}
 })
+
 .filter('to_trusted', ['$sce', function($sce) {
 	return function(text) {
 		return $sce.trustAsHtml(text);
@@ -109,33 +123,28 @@ var Onglet = function(name){
 	};
 };
 
-
-//store into array all tabs available
-var tabList = [];
+//side menu animation !
 var accueil = new Onglet('#accueil');
 var informations = new Onglet('#informations');
 var projets = new Onglet('#projets');
 var cv = new Onglet('#cv');
 var contacts = new Onglet('#contacts');
 
-
-var menuTop = document.querySelector("#menu-top");
 var hamburger = document.querySelector("#menu-top>.hamburger");
 var ongletTop = document.querySelectorAll('#menu-top>.onglet');
 
 // hide menu if link clicked (touched)
 for(var i=0;i<ongletTop.length; i++){
 	ongletTop[i].addEventListener("click", function(evt){
-		console.log("lien clicked");
+		console.log("link clicked");
 		for(var i=0;i<ongletTop.length; i++){
 			ongletTop[i].classList.toggle('hidden');
 		}
 	});
 }
 
-// show / hide menu if click on hamburger
+// show / hide menu on hamburger's click
 hamburger.addEventListener("click",function(evt){
-	console.log('click yeay menu');
 	for(var i=0;i<ongletTop.length; i++){
 		ongletTop[i].classList.toggle('hidden');
 	}

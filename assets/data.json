@@ -1,30 +1,63 @@
 {
 	"description" : {
-		"text":"Hey, <br/> Je suis Edouard, étudiant en Master Sécurité Informatique en Alternance <a href=\"http://www.cfa-afti.com/programmes/msi/\">(CFA-AFTI / UMPC)</a>. <br /> Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href=\"http://github.com/edznux/\">Github</a>."
+		"text": {
+			"fr": "Hey, <br/> Je suis Edouard, étudiant en Master Sécurité Informatique en Alternance <a href=\"https://www.cfa-afti.com/programmes/msi/\">(CFA-AFTI / UMPC)</a>. <br /> Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href=\"https://github.com/edznux/\">Github</a>.",
+			"en": "Hi, I'm Edouard. <br /> I'm a security focused student <a href=\"http://upmc.fr\">@UPMC</a> and <a href=\"http://www.cfa-afti.com/programmes/msi/\">@CFA-AFTI</a>. I love open-source and user-friendly tools. You can find me on <a href=\"https://github.com/edznux/\">Github</a> or <a href=\"https://twitter.com/edznux/\">Twitter</a>. I work in apprenticeship at <a href=\"https://orange.com/\" class=\"orange\">Orange</a>"
+		}
 	},
 	"info" : {
-		"text":"Passioné , j'apprends avec envie de nombreuses nouvelles technologies de développement que j'utilise au fur et à mesure dans mes projets personnels et lors de stages. J'ai eu l'occasion de travailler avec le framework <span class=\"laravel\">Laravel</span> en entreprise dans une startup naissante. Je maitrise le javascript et nombre de ces librairies et/ou frameworks (<span class=\"nodejs\">NodeJs</span>, JQuery, <span class=\"angular\">Angular</span>, <span class=\"sails\">Sails</span>). J'apprends aussi d'autres technologies web telle que Ruby On Rails, pour élargir mes compétences. En plus de ces bonnes connaissances en dévéloppement, je possède les bases de la sécurité, de la gestion de serveur Linux ainsi que des bases de données SQL et NoSQL. Toujours à la recherche de nouvelles connaissances je m'essaie à divers challenges de sécurité et de développement."
+		"text": {
+			"fr":"Développeur passionné avec un attrait pour la sécurité offensive, je suis en cours de finir mon Master Sécurité Informatique. Je participes dès que possibles à divers évenements de sécurité : CTFs (online & offline), conférences (SSTIC, DEFCON) et m'exerces sur différents sites de challenges de sécurité informatique. Étant créatif et curieux par nature, j'aimes (re-)écrire mes outils afin de comprendre leurs fonctionnement.",
+			"en":"Passionate developer with a fascination about offensive security, I'm graduating on my Infosec's Master (Master Sécurité Information). I try to attend or try as much as possible security events : CTFs (online & offline), conferences (SSTIC, DEFCON) and try to keep my skills sharp on several infosec challenges. Creative and curious by nature, I like (re-)doing tools to get a better understanding on how they works."
+		}
 	},
 	"projets" : [
+		{
+			"id": "netm4ul",
+			"title": "Netm4ul",
+			"date": 2018,
+			"buttons": {
+				"github": "https://github.com/netm4ul/netm4ul"
+			},
+			"description": {
+				"fr": "Outil de reconnaissance et de test d'intrusion automatisé et distribué",
+				"en": "Automated distributed recon & pentest tool"
+			},
+			"tags": [
+				"golang",
+				"postgres",
+				"mongodb",
+				"docker"
+			]
+		},
 		{
 			"id":"hubot-ethereum",
 			"title":"Hubot-ethereum", 
 			"date": 2016,
 			"buttons": {
-				"github" : "https://github.com/edznux/hubot-btc"
+				"github" : "https://github.com/edznux/hubot-ethereum"
 			},
-			"description" : "Robot textuel basé sur hubot. Il permet de récupéré des informations avancée sur le reseau Ethereum. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-ethereum\">hubot-ethereum</a>)",
-			"tags" : ["nodejs", "ethereum", "redis", "npm"]
+			"description" : {
+				"fr": "Robot textuel basé sur hubot. Il permet de récupéré des informations avancée sur le reseau Ethereum. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-ethereum\">hubot-ethereum</a>)",
+				"en": "Chat bot for ethereum blockchain using the Hubot framework"
+			},
+			"tags" : ["nodejs", "ethereum", "redis"]
 		},
 		{
-			"id":"hubot-btc",
-			"title":"Hubot-btc", 
-			"date": 2016,
+			"id": "go2seccomp",
+			"title": "go2seccomp",
+			"date": 2018,
 			"buttons": {
-				"github" : "https://github.com/edznux/hubot-btc"
+				"github": "https://github.com/xfernando/go2seccomp"
 			},
-			"description" : "Robot textuel basé sur hubot. Il permet de récupéré des informations sur le bitcoin et les différentes addresse fournis par l'utilisateur. Disponible sous forme de packet npm (<a href=\"https://www.npmjs.com/package/hubot-btc\">hubot-btc</a>)",
-			"tags" : ["nodejs", "bitcoin", "redis", "npm"]
+			"description": {
+				"fr": "J'ai pu aider au developpement d'un outils de generation de profils Seccomp automatique sur des binaire Go",
+				"en": "I added support for ARM and x86 architecture and fixed a bug on this automated seccomp profile's generator for Go binaries"
+			},
+			"tags": [
+				"golang",
+				"docker"
+			]
 		},
 		{
 			"id":"site",
@@ -34,68 +67,34 @@
 				"github": "https://github.com/edznux/edouard.schweisguth.fr",
 				"demo":"https://edouard.schweisguth.fr/"
 			},
-			"description" : "Site vitrine que vous visitez actuellement. Disponible en HTTPS grace à Let's Encrypt, utilise AngularJS.",
-			"tags" : ["nginx","angular", "https", "frontend"]
-		},
-		{
-			"id":"urlshortner",
-			"title":"UrlShortner",
-			"date":2015,
-			"buttons":{
-				"github":"https://github.com/edznux/urlshortner",
-				"demo":"http://short.edznux.fr"
+			"description" : {
+				"fr": "Site vitrine que vous visitez actuellement. Disponible en HTTPS grace à Let's Encrypt, utilise AngularJS.",
+				"en": "This portfolio website. It uses AngularJS for the frontend, HTTPS with Let's Encrypt and served with Nginx on Docker."
 			},
-			"description":"Projet de raccourciceur d'url, basé sur Ruby On Rails, analyse basique du nombre de vues.",
-			"tags":["ruby on rails", "mysql"]
-		},
-		{
-			"id":"monitorjs",
-			"title":"Monitor JS",
-			"date":2014,
-			"buttons":{
-				"github":"https://github.com/edznux/monitorjs",
-				"demo":"http://monitor.edznux.fr"
-			},
-			"description":"Système de monitoring et d'analytics basique basé sur NodeJS",
-			"tags":["nodejs","mongodb","angular"]
+			"tags" : ["nginx", "angular", "https", "frontend"]
 		}
+
 	],
 	"contact":{
 		"blockchain":[
-				{
-					"name":"ethereum",
-					"address":"0x1ee3797c74b516befbb172eb3e306d70e9446d1a",
-					"logo":"assets/ethereum.svg",
-					"link":"https://ethereum.org"
-				},
-				{
-					"name":"bitcoin",
-					"address":"1KJUCouUBvRi5CagnDpzdeiQ9zdYSEYPrX",
-					"logo":"assets/bitcoin.svg",
-					"link":"https://bitcoin.org"
-				}
 			]
 	},
 	"tags": {
-		"ror":{
-			"title": "Ruby On Rails",
-			"link" :"http://rubyonrails.org/" 
-		},
 		"nodejs":{
 			"title":"Node JS",
 			"link": "https://nodejs.org/"
 		},
 		"mongodb":{
-			"title": "MongoDB",
+			"title":"MongoDB",
 			"link":"https://www.mongodb.com"
+		},
+		"docker": {
+			"title": "Docker",
+			"link": "https://docker.com"
 		},
 		"redis":{
 			"tile":"Redis",
 			"link":"https://redis.io"
-		},
-		"npm":{
-			"title":"npm",
-			"link":"https://npmjs.com/"
 		},
 		"angular":{
 			"title":"Angular JS",
@@ -105,9 +104,13 @@
 			"title":"MySQL",
 			"link":"https://www.mysql.com/"
 		},
+		"postgres":{
+			"title":"PostgreSQL",
+			"link":"https://www.postgresql.org/"
+		},
 		"nginx":{
 			"title":"NGINX",
-			"link":"http://nginx.org/"
+			"link":"https://nginx.org/"
 		},
 		"ethereum":{
 			"title":"Ethereum",
@@ -116,6 +119,10 @@
 		"bitcoin":{
 			"title":"Bitcoin",
 			"link":"https://bitcoin.org"
+		},
+		"golang":{
+			"title": "Go",
+			"link":"https://golang.org"
 		}
 	}
 }
