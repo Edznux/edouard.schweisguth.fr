@@ -8,17 +8,17 @@
     "test": "grunt qunit"
   },
   "devDependencies": {
-    "grunt": "*",
+    "grunt": "^1.0.3",
     "grunt-browser-sync": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-qunit": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0"
   },
   "dependencies": {
-    "normalize.css": "*"
+    "normalize.css": "^8.0.0"
   }
 }
