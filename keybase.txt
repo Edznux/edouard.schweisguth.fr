@@ -1,0 +1,89 @@
+==================================================================
+https://keybase.io/edznux
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://edouard.schweisguth.fr
+  * I am edznux (https://keybase.io/edznux) on keybase.
+  * I have a public key with fingerprint 096B 82B9 36A6 8369 A849  02D7 54FE 0172 0070 C3F1
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209594589d5769595cfd8234e36cdec23a75dcc6cfb0e8b81108fa3d1e031efafc0a",
+      "fingerprint": "096b82b936a68369a84902d754fe01720070c3f1",
+      "host": "keybase.io",
+      "key_id": "54fe01720070c3f1",
+      "kid": "0101302cdb8d1bf73f6f97d8cc88786cecfd67e1f005b34c38413b8fa957c49fd1dc0a",
+      "uid": "9501d34ff425a5891f1e938d4858d419",
+      "username": "edznux"
+    },
+    "merkle_root": {
+      "ctime": 1542752231,
+      "hash_meta": "449b72044eeae4db91e6de62624fae583bcbbe625ca2dc9c00400d557d6113fc",
+      "seqno": 3985232
+    },
+    "revoke": {
+      "sig_ids": [
+        "728d69381713976f2155a9cf29b57ce8a3ff5501ed5e28079326c474bd6e7e6b0f"
+      ]
+    },
+    "service": {
+      "hostname": "edouard.schweisguth.fr",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1542752236,
+  "expire_in": 157680000,
+  "prev": "21394116966a1fbb820e84a207893fcbad7542a8109034bb49308f2a250ce0a1",
+  "seqno": 23,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.80
+Comment: https://keybase.io/crypto
+
+yMQMAnicbVN7UBVVHL4XhATDB2qhOVOskmWE57HPazKAKTnmaI5cH6h09pyzsKL3
+0t57EUUoDXyAo/lInVLGyqR0fDEkMtagYlNojhVEhaUjIaNmTQ90dCzrLGXNNO0f
+u3t2vt93vu/b75xKiPbEe2fe9TqeouafvWdOlkc8uT2rr5dKZpAtlXylUiHvffBF
+jIfCeYU2k3wSgAgYiiErusEUTRWvCrWYjrDMsUoZpwgTTWGUqtQyAddNHUKgWwQz
+yAGG3CIWBURKlSw7kM+dIscOhF1aQzV1ZBpYJaqOVYPosgEQ0xTZ4gBqCAANUGxB
+MVgQDLkTQpxJQjzNDopvYpHXK+9/8Pd0A4gBoszUGTQtDVuqZWhMp1TXNV2lXLhQ
+NQ4tABQTyxTrMsSmEG4oGpUNi0H2l+5IL52hAMiwbFkyUojIAlqQG1hnsq6IGzRc
+YIg7AbKYCzRnywKREqksVVrMncJFPM8JBsNutDRsuwCoyEhTEMJQ2COhgrzFPEzE
+nCwbpvAiy5wTLjPTgFxlXEUqki3CFR2b1DTFWqEEMWpQAGQAmKJoTIUQW1SoCPEX
+AkHJhw1dQRgJBQ4vDhZyd/OQnS9CC0m+XElDOlOFfqhBbGiqhaCiEINayDCFfa4T
+bFmKsMyZwpEONAMjlcqabDKVa1w1gSXNL3M3c4pt2kvu/qV/3AcjxGFpIVqwhNuh
+/Ei4IM1yhLYiJxgO0uAigSkIh4tCPjeh8NIid2gJN/P+pssz7QATbRETxdwJ2cGA
+SEwg/xuemirxkiLb4Xm2ixDt1IG43H14saBEwpsMoWqoKoGWKfom+ikTBDTdEGGZ
+xK0bIjoEBsCyacoGFs1FBCmAckDgv2kiLHSSfMEpMgyQcMThUtnJE/P6eLzxntiY
+KPcYeeLjBt47XPnJA/6Y91JLZ9WdvonfaXG/9ZRtY54Sf+fUORWr2rdeHLayYeKO
+0fPUtvi9c+v6TEzy9NxMn3ooKltv7G63J5e2NNYOqtnffG7IlmMpVbR+e7+dt1f3
+r7y4ikyKHI06fbR0z4Guh9Z31+YMaB0Xs6ZlyuUts9ufg99bnq1O7empKa0LNix/
++NuOs8ueTh0/va1h7GNPPTN9aNfGzYc25YzeTVcM2ru9iflv+w7mVr/9Zsza9MaZ
+eyoaNn/TtHtV/JDozts35HHXjl/cd6D73dg9pes+mrE/fK6qrKPuidbLOcq20ekf
+rPgqdvba34/nND2gZSZNeCTt/X7DFySzzCUnptRHJbapcyLJn/1wls766YvJt369
+cTDVO+udZ6vKtfUHd47NHdpXP7+rQc7umT90/+ALuV9/7JWOr7x6YuSp/jVH/Ffm
+dvn30egkJ2HMLwMeHLjJX5F4ZbjG6l6rTB8zblTWG43eJKmucrz64bTpPdNGZd7V
+OrIOH70UHLT39RXZu32V5SPO5G4sT174+add697bmFDxVtvyzYnRNXcumaebY0bi
+K/XRa8ojjaXnb+3s/6N/w/z1G66FM1uHxdVXXxuR2LTg5Rkko/r+fhVlO9jjN1Ne
+uR7IyRg1+MsUWFfT/Whl875JT7ZnHd7V2d3y/CdXX/SPvZAWOywru6ljB5p7cvwR
++3JdXMKx6iMLY7aVRBu1yzLu63n1uoLPZfwJ+jX7LA==
+=uqX0
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/edznux
+
+==================================================================
+
