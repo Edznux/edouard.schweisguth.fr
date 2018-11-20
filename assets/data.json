@@ -2,13 +2,13 @@
 	"description" : {
 		"text": {
 			"fr": "Hey, <br/> Je suis Edouard, étudiant en Master Sécurité Informatique en Alternance <a href=\"https://www.cfa-afti.com/programmes/msi/\">(CFA-AFTI / UMPC)</a>. <br /> Developpeur passionné de web et de sécurité informatique, j'ai de nombreux projets, certains open-source et disponibles sur mon <a href=\"https://github.com/edznux/\">Github</a>.",
-			"en": "Hi, I'm Edouard. <br /> I'm a security focused student <a href=\"http://upmc.fr\">@UPMC</a> and <a href=\"http://www.cfa-afti.com/programmes/msi/\">@CFA-AFTI</a>. I love open-source and user-friendly tools. You can find me on <a href=\"https://github.com/edznux/\">Github</a> or <a href=\"https://twitter.com/edznux/\">Twitter</a>. I work in apprenticeship at <a href=\"https://orange.com/\" class=\"orange\">Orange</a>"
+			"en": "Hi, I'm Edouard. <br /> I'm a French security researcher just graduated from a master's degree. Interested in learning things, I set my focus around software development, exploitation and system security. I like all kind of challenges: from computers to long distance longboarding. You can find me on <a href=\"https://github.com/edznux/\">Github</a> or <a href=\"https://twitter.com/edznux/\">Twitter</a>."
 		}
 	},
 	"info" : {
 		"text": {
 			"fr":"Développeur passionné avec un attrait pour la sécurité offensive, je suis en cours de finir mon Master Sécurité informatique. Je participe dès que possible à divers évènements de sécurité : CTFs (online & offline), conférences (SSTIC, DEFCON) et m'exerce sur différents sites de challenges de sécurité informatique. Étant créatif et curieux par nature, j'aime (re-)écrire mes outils afin de comprendre le fonctionnement des choses.",
-			"en":"Passionate developer with a fascination about offensive security, I'm graduating my Infosec's Master (Master Sécurité Information). I try to attend or try as much as possible security events : CTFs (online & offline), conferences (SSTIC, DEFCON) and try to keep my skills sharp with several infosec challenges. Creative and curious by nature, I like (re-)doing tools to get a better understanding on how things works."
+			"en":"Nerd with an attraction towards offensive security, I completed my master degree in Information Security (\"Master Sécurité Informatique\") in 2018 at the Sorbonne University.<br />I try to keep my skills sharp and learn new ones with several infosec projects and challenges.<br />Creative and curious by nature, I like building tools to get a better understanding on how things works.<br />Supporter of useable security I prefer simple and polished tools useable by anyone to l33t reserved ones.<br />I'm building some tools, some of them available on <a href=\"https://github.com/edznux/\">Github</a>.<br />In fall 2018, I challenged myself to do a long-distance longboarding solo trip from Brussels to Amsterdam."
 		}
 	},
 	"projets" : [
@@ -28,6 +28,24 @@
 				"postgres",
 				"mongodb",
 				"docker"
+			]
+		},
+		{
+			"id": "netm4ul-frontend",
+			"title": "Netm4ul WebUI",
+			"date": 2018,
+			"buttons": {
+				"github": "https://github.com/netm4ul/webui"
+			},
+			"description": {
+				"fr": "Outil de reconnaissance et de test d'intrusions distribué et automatisé",
+				"en": "Web user interface for the Netm4ul recon tool."
+			},
+			"tags": [
+				"vuejs",
+				"javascript",
+				"docker",
+				"frontend"
 			]
 		},
 		{
@@ -52,7 +70,7 @@
 			},
 			"description": {
 				"fr": "J'ai pu aider au développement d'un outil de génération de profils Seccomp automatique sur des binaires Go",
-				"en": "I added support for ARM and x86 architecture and fixed a bug on this automated seccomp profile's generator for Go binaries"
+				"en": "Automated seccomp profile's generator for Go binaries: I added support for ARM and x86 architectures"
 			},
 			"tags": [
 				"golang",
@@ -68,10 +86,10 @@
 				"demo":"https://edouard.schweisguth.fr/"
 			},
 			"description" : {
-				"fr": "Site vitrine que vous visitez actuellement. Disponible en HTTPS grâce à Let's Encrypt, utilise AngularJS.",
-				"en": "This portfolio website. It uses AngularJS for the frontend, HTTPS with Let's Encrypt and served with Nginx on Docker."
+				"fr": "Site vitrine que vous visitez actuellement. Disponible en Https grâce à Let's Encrypt, utilise AngularJS.",
+				"en": "This portfolio website. It uses AngularJS for the frontend, Let's Encrypt and Nginx on Docker."
 			},
-			"tags" : ["nginx", "angular", "https", "frontend"]
+			"tags" : ["nginx", "angular", "frontend"]
 		}
 
 	],
@@ -83,6 +101,13 @@
 		"nodejs":{
 			"title":"Node JS",
 			"link": "https://nodejs.org/"
+		},
+		"javascript": {
+			"title": "Javascript"
+		},
+		"vuejs": {
+			"title": "Vue JS",
+			"link":"http://vuejs.org/"
 		},
 		"mongodb":{
 			"title":"MongoDB",
