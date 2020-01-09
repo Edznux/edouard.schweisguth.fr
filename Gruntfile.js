@@ -14,18 +14,18 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['src/js/app.js', 'src/js/main.js','src/js/canvas.js'],// 'src/js/project.js', 'src/js/outro.js'],
-        dest: 'public/assets/js/main.js',
+        dest: 'assets/js/main.js',
       },
     },
      less: {
          development: {
-             files: {"public/assets/css/main.css": "src/css/main.less"}
+             files: {"assets/css/main.css": "src/css/main.less"}
          },
          production: {
              options: {
                  cleancss: true
              },
-             files: {"public/assets/css/main.css": "src/css/main.less"}
+             files: {"assets/css/main.css": "src/css/main.less"}
          }
      },
     watch: {
@@ -48,8 +48,8 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src : [
-            'public/assets/css/*.css',
-            'public/assets/js/*.js',
+            'assets/css/*.css',
+            'assets/js/*.js',
             'index.html'
           ]
         },
