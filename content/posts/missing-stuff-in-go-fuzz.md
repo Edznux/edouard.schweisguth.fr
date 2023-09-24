@@ -19,6 +19,9 @@ I'm probably not the best documentation reader out there - I have to admit; but:
 How do you compile a fuzzing harness as a dedicated binary, like an equivalent of `go test -c` ?
 Well, just write `go test -c -fuzz=FuzzMyHarness` right? Wrong, it will compile without instrumentation and tell you that. The solution? `go test -c -d=libfuzzer` which I found in the code somewhere while reading what the toolchain was doing.
 
+Writing a fuzz harness in a file that you forgot to suffix with  `_test.go` and then running `go test -fuzz=FuzzMyFunction` will just... run the test successfully and then exit. Not fuzz anything.
+Adding a warning message saying "the provided function name does not match any harness in the _test.go files provided" would have saved me.... too more time that I can admit.
+
 ## Features
 
 In order to see how effective a fuzzing campaign is and how good the harness are, a code coverage metrics is really helpful. As far as I can tell, there's no such thing currently.
