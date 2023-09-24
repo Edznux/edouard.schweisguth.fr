@@ -1,6 +1,6 @@
 # edouard.schweisguth.fr
 
-Now build with hugo.
+Now built with hugo.
 
 ## Live overview : 
 

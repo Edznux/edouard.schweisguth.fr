@@ -1,52 +1,72 @@
 baseURL = "https://edouard.schweisguth.fr/"
 languageCode = "en-us"
 title = "Edouard Schweisguth"
-theme = "anatole"
+theme = "terminal"
 summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
 
 [menu]
-	[[menu.main]]
-	name = "Home"
-	identifier = "home"
-	weight = 100
-	url = "/"
+[[menu.main]]
+name = "Home"
+identifier = "home"
+weight = 100
+url = "/"
 
-	[[menu.main]]
-	name = "Posts"
-	weight = 200
-	identifier = "posts"
-	url = "/posts/"
+[[menu.main]]
+name = "Posts"
+weight = 200
+identifier = "posts"
+url = "/posts/"
 
-	[[menu.main]]
-	name = "About"
-	weight = 300
-	identifier = "about"
-	url = "/about/"
+[[menu.main]]
+name = "About"
+weight = 300
+identifier = "about"
+url = "/about/"
 
 [params]
-	description = "Edouard Schweisguth"
-	profilePicture = "images/longboardbackpack.resized.jpg"
-	displayMode = "dark"
+customJs = ["/js/main.js"]
+description = "Edouard Schweisguth"
+profilePicture = "images/longboardbackpack.resized.jpg"
+themeColor = "green"
+fullWidthTheme = false
+centerTheme = true
 
-	[[params.socialIcons]]
-	icon = "fab fa-github"
-	title = "GitHub"
-	url = "https://github.com/edznux"
+[params.twitter]
+# set Twitter handles for Twitter cards
+# see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
+# do not include @
+creator = "edznux"
+site = ""
 
-	[[params.socialIcons]]
-	icon = "fab fa-twitter"
-	title = "Twitter"
-	url = "https://twitter.com/edznux"
 
-	[[params.socialIcons]]
-	icon = "fab fa-keybase"
-	title = "Keybase"
-	url = "https://keybase.io/edznux"
+[languages]
+[languages.en]
+languageName = "English"
+title = "Ed's blog"
+
+[languages.en.params.logo]
+logoText = "Ed's blog"
+logoHomeLink = "/"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "GitHub"
+url = "https://github.com/edznux"
+
+[[params.socialIcons]]
+icon = "fab fa-twitter"
+title = "Twitter"
+url = "https://twitter.com/edznux"
+
+[[params.socialIcons]]
+icon = "fab fa-keybase"
+title = "Keybase"
+url = "https://keybase.io/edznux"
 
 [outputs]
-  home = ["HTML"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML"]
-  term = ["HTML"]
+home = ["HTML"]
+section = ["HTML", "RSS"]
+taxonomy = ["HTML"]
+term = ["HTML"]
