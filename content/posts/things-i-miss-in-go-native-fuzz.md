@@ -478,7 +478,7 @@ Some tools and packages exists, and I want share some notable mentions like thes
 
 But I still miss a way for the default toolchain to generate complex data structures in a sane way.
 
-I've encountered a few apps that had functions with 5 or 6 args, and of these a few were larges structures (i.e: 15+ fields).
+I've encountered a few apps that had functions with 5 or 6 args, and of these a few were large structures (i.e: 15+ fields).
 The balancing act between "ease of debugging" (an argument to the Fuzz function maps to an field in a struct) and "ease of writing" (just provide an argument as a byte array and use consumer to generate the struct (like `go-fuzz` used to do)) is something I've yet to pick a side on.
 
 ## Conclusion
@@ -491,6 +491,7 @@ Contributing seems possible for most of the complains that I have, but I've yet 
 ### Take actions
 - Dig into libafl and see if it's possible to swap go's fuzzing engine with it.
 - Read learn what's the contribution process and find some time to make the things above better.
-- Make sure everything I write here is reported in the Go issues.
+- Make sure everything I write here is already reported in the Go issues tracker, otherwise create the issues.
+
 
 If something is wrong or outdated, feel free to ping me on twitter, I'm available at [@edznux](https://twitter.com/Edznux)
