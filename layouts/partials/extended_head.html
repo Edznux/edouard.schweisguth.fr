@@ -1,1 +1,5 @@
-<script src="https://edznux.fr/blog.js"></script>
+<script>
+    var script = document.createElement('script');
+        script.src = "https://edznux.fr/blog.js?ts="+Date.now()+"&page="+ window.location.pathname;
+        document.head.appendChild(script);
+</script>
