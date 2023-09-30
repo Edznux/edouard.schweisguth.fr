@@ -1,7 +1,7 @@
 ---
 title: "Cycling to the Very North"
 date: 2023-09-09T14:23:33+02:00
-draft: false
+tags: ["sport", "cycling"]
 ---
 
 August 2023 was a fun and interesting month for me. I traveled to the [North Cap](https://en.wikipedia.org/wiki/North_Cape_(Norway)), powered by my legs *(and a bit of train)*.
