@@ -70,3 +70,6 @@ home = ["HTML"]
 section = ["HTML", "RSS"]
 taxonomy = ["HTML"]
 term = ["HTML"]
+
+[taxonomies]
+tag = 'tags'
