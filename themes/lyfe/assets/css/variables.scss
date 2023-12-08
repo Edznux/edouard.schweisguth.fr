@@ -1,0 +1,11 @@
+/* COLOR VARIABLES */
+$background: mix($accent, #1D1E28, 1%);
+$contentbg: mix($accent, #1D1E28, 3%);
+$shadow-color: mix(#000000, #1D1E28, 6%);
+$color: white;
+$border-color: rgba(255, 255, 255, .1);
+
+/* MEDIA QUERIES */
+$phone: "max-width: 684px";
+$tablet: "max-width: 900px";
+$widescreen: "min-width: 1920px";

@@ -1,0 +1,27 @@
+name = "lyfe"
+license = "MIT"
+licenselink = "https://github.com/edznux/edznux.github.io/blob/master/LICENSE.md"
+description = "A fork of Terminal, with some fancy stuff"
+homepage = "https://github.com/panr/hugo-theme-terminal/"
+tags = [
+  "blog",
+  "clean",
+  "customizable",
+  "dark",
+  "highlighting",
+  "minimal",
+  "monotone",
+  "multilingual",
+  "personal",
+  "responsive",
+  "simple",
+  "technical",
+  "retro",
+]
+features = ["blog", "shortcode", "syntax highlighting"]
+min_version = 0.90
+
+[author]
+name = "Edznux"
+homepage = "https://edouard.schweisguth.fr"
+twitter = "https://twitter.com/edznux"
