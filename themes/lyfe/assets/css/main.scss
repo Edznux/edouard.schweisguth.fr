@@ -307,7 +307,10 @@ mark {
   &.full,
   &.center {
     border: none;
-    margin: 0 auto;
+    margin: 24px auto;
+    @media ($phone) {
+      margin: 0px auto;
+    }
   }
 
   &.full {

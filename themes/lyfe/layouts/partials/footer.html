@@ -19,6 +19,7 @@
 {{ $bundle := slice $menu $prism $lyfe | resources.Concat "bundle.js" }}
 
 <canvas id="lyfe-canvas" class="lyfe-canvas" />
+<script src="https://unpkg.com/honeycomb-grid@4.1.5/dist/honeycomb-grid.umd.js"></script>
 <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
 
 <!-- Extended footer section-->

@@ -1,60 +1,185 @@
-const canvas = document.getElementById('lyfe-canvas');
-const ctx = canvas.getContext('2d');
-
-const overflow = 200
-const overflow_x = overflow
-const overflow_y = overflow
-const angle = 2 * Math.PI / 6;
-const radius = 50;
-
-var number_of_hex = (canvas.width + overflow_x / (radius*2)) * (canvas.height + overflow_y / (radius*2))
-var hex_colors = {}
-
-function generate_colors(){
-    var color = ""
-    for(var i = 0; i < number_of_hex; i++) {
-        color = "#1D1E28"
-        if(Math.random() > 0.7){
-          color = "#1D1D1D"
+const fakeDataInput = {
+  seed: 1337,
+  rings: [
+    {
+      entity: [
+        {
+          posX: 0,
+          posY: 0,
+          type: "self",
         }
-        hex_colors[i] = color
+      ]
+    },
+    {
+      entity: [
+        {
+          posX: 0,
+          posY: 0,
+          type: "ring1",
+        }
+      ]
     }
-    console.log(hex_colors)
+  ],
+  environment: {
+    c: [{
+      value: 450,
+      last: 1234678 // timestamp
+    }],
+    t: [{
+      value: 20,
+      last: 1234678 // timestamp
+    }],
+    h: [{
+      value: 20,
+      last: 1234678 // timestamp
+    }],
+  },
+  capacity: {
+    k: {
+      "status": "low"
+    },
+    p: {
+      "status": "medium"
+    },
+    s: {
+      "status": "high"
+    }
+  }
 }
 
-function drawHexagon(x, y, color) {
+const canvas = document.getElementById('lyfe-canvas');
+const ctx = canvas.getContext('2d');
+var COLOR_PALETTE = {};
+const CAP_COLOR_PALETTE = {
+  low: "#531b1b",
+  medium: "#331b53",
+  high: "#1b3153"
+}
+var lastSize = 0;
+
+function drawHexagonGrid(width, height, radius) {
+    // not accurate but good enough?
+    const hexHeight = ((3/2)*radius)
+    const hexWidth = (Math.sqrt(3)*radius)
+    const xCount = Math.ceil(height / hexHeight)
+    const yCount = Math.ceil(width / hexWidth)
+    // console.log(xCount, yCount)
+    const Hex = Honeycomb.defineHex({ dimensions: radius, origin: 'topLeft'})
+    grid = new Honeycomb.Grid(Hex, Honeycomb.rectangle({ width: yCount, height: xCount}))
+
+    // this adds more generated colors only when required:
+    // This is useful for changing windows size
+    // We don't really care about truncating the color palette when we size down.
+    if (Object.keys(COLOR_PALETTE).length < grid.size) {
+      // console.log(grid, COLOR_PALETTE)
+      grid.forEach(generateColorsFromEachHex);
+    }
+    // am I inverting the x and y coordinate system somewhere? :notlikethis:
+    var capKCell = {"x": width - hexWidth, "y": height - hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.k.status]}
+    var capPCell = {"x": width - (hexWidth*2) , "y": height - hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.p.status]}
+    var capSCell = {"x": width - (hexWidth*3) , "y": height - hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.s.status]}
+    drawUI(grid, capKCell, capPCell, capSCell)
+    grid.forEach(drawHex);
+}
+
+function drawHex(hex){
   ctx.beginPath();
-  for (var i = 0; i < 6; i++) {
-    x_pos = x + radius * Math.cos(angle * i)
-    y_pos = y + radius * Math.sin(angle * i)
-    ctx.lineTo(x_pos, y_pos);
+  ctx.moveTo(hex.corners[0].x, hex.corners[0].y);
+  for (let i = 1; i < 6; i++) {
+      ctx.lineTo(hex.corners[i].x, hex.corners[i].y);
   }
   ctx.closePath();
-  ctx.fillStyle = color;
+  ctx.fillStyle = getColorOfHex(hex)
   ctx.fill();
   ctx.stroke();
 }
 
-function drawHexGrid(width, height) {
-  offset_start_x = overflow_x / 2;
-  offset_start_y = overflow_y / 2;
-  count = 0;
-  for (let y = radius; y + radius * Math.sin(angle) < height; y += radius * Math.sin(angle)) {
-    for (let x = radius, j = 0; x + radius * (1 + Math.cos(angle)) < width; x += radius * (1 + Math.cos(angle)), y += (-1) ** j++ * radius * Math.sin(angle)) {
-    count++;
-      drawHexagon(x-offset_start_x, y-offset_start_y, hex_colors[count]);
-    }
+function getColorOfHex(hex) {
+  return getColorOfHexByPalette(hex, COLOR_PALETTE)
+}
+
+function getColorOfHexByPalette(hex, pallette) {
+  return pallette[hex]
+}
+
+function generateColorsFromEachHex(currentHex) {
+  generateColors(currentHex, COLOR_PALETTE)
+}
+
+function generateColors(currentHex, mapping){
+  // generate only the background color once
+  if(mapping[currentHex]){
+    console.log("already generated color for", currentHex)
+    return mapping[currentHex]
   }
+  colorA = "#1D1E28"
+  colorB = "#1D1D1D"
+
+  color=colorA;
+  if(Math.random() > 0.8){
+    color = colorB
+  }
+  mapping[currentHex] = color
+}
+
+//https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array#2450976
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+  // While there remain elements to shuffle.
+  while (currentIndex > 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+  return array;
+}
+
+function main(){
+  window.requestAnimationFrame(draw);
 }
 
 function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const width =  window.innerWidth;
+  const height =  window.innerHeight;
+  const radius = 50;
+  canvas.width = width;
+  canvas.height = height;
 
-    drawHexGrid(canvas.width + overflow, canvas.height+ overflow);
-    window.requestAnimationFrame(draw);
+  drawHexagonGrid(width, height, radius);
+  window.requestAnimationFrame(draw);
 }
 
-generate_colors()
-window.requestAnimationFrame(draw);
+function drawUI(grid, capKCell, capPCell, capSCell){
+  const capKCellHex = grid.pointToHex(
+    { x: capKCell.x, y: capKCell.y },
+    { allowOutside: true }
+  );
+  const capPCellHex = grid.pointToHex(
+    { x: capPCell.x, y: capPCell.y },
+    { allowOutside: true }
+  );
+  const capSCellHex = grid.pointToHex(
+    { x: capSCell.x, y: capSCell.y },
+    { allowOutside: true }
+  );
+  // console.log(capKCell, capPCell, capKCellHex, capPCellHex)
+
+  COLOR_PALETTE[capKCellHex] = capKCell.color
+  COLOR_PALETTE[capPCellHex] = capPCell.color
+  COLOR_PALETTE[capSCellHex] = capSCell.color
+}
+ 
+main()
+
+document.addEventListener('click', (e) => {
+  console.log("click", e.clientX, e.clientY)
+  clickedHex = grid.pointToHex(
+    { x: e.clientX, y: e.clientY },
+    { allowOutside: false }
+  )
+  console.log(clickedHex)
+})
