@@ -47,6 +47,9 @@ const fakeDataInput = {
   }
 }
 
+var switchCheckbox = document.getElementById("switch-bg");
+
+
 const canvas = document.getElementById('lyfe-canvas');
 const ctx = canvas.getContext('2d');
 var COLOR_PALETTE = {};
@@ -183,3 +186,14 @@ document.addEventListener('click', (e) => {
   )
   console.log(clickedHex)
 })
+
+
+// This enables the "visualisation mode" where the content is hidden but some 
+// simulation operations are shown and explained
+switchCheckbox.addEventListener("click", (e) => {
+  console.log(e.target.checked)
+  document.getElementsByClassName("posts")[0].style.display = e.target.checked ? "none" : "block"
+  document.getElementsByClassName("footer")[0].style.display = e.target.checked ? "none" : "block"
+  document.getElementsByClassName("navigation-menu")[0].style.display = e.target.checked ? "none" : "block"
+  document.getElementsByClassName("sim-viz-text")[0].style.display = e.target.checked ? "block" : "none"
+});

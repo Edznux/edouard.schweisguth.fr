@@ -6,6 +6,11 @@
     {{ if len $.Site.Menus }}
       {{ partial "mobile-menu.html" . }}
     {{ end }}
+    <div class="switch-viz-text-menu">
+      <label class="switch">
+        Sim Viz <input id="switch-bg" type="checkbox" />
+      </label>
+    </div>
     {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
       {{ partial "language-menu.html" . }}
     {{ end }}

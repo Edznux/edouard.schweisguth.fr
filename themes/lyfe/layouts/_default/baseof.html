@@ -12,8 +12,11 @@
 <div class="{{- $container -}}{{- cond ($.Site.Params.oneHeadingSize | default true) " headings--one-size" "" }}">
 
   {{ partial "header.html" . }}
-
   <div class="content">
+    <div class="sim-viz-text">
+      This mode is there to display the visualizations of the simulations that runs in the background.
+      More info soon. WIP.
+    </div>
     {{ block "main" . }}
     {{ end }}
   </div>

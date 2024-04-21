@@ -294,13 +294,23 @@ mark {
   color: $background;
 }
 
+.switch-viz-text-menu {
+  padding: 10px;
+}
+.sim-viz-text {
+  display: none;
+  padding: 10px;
+  border: 1px solid $accent;
+  margin-top: 10px;
+}
+
 .container {
   background-color: $contentbg;
   display: flex;
   flex-direction: column;
   padding: 40px;
   max-width: 864px;
-  min-height: 100vh;
+  // min-height: 100vh; // needed to remove this for the hidding button
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 10px 10px 0px $shadow-color;
 
