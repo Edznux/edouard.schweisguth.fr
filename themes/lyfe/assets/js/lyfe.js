@@ -49,6 +49,18 @@ const fakeDataInput = {
 
 var switchCheckbox = document.getElementById("switch-bg");
 
+function Config(){
+  this.width =  window.innerWidth;
+  this.height =  window.innerHeight;
+  
+  this.radius = 50;
+  this.hexHeight = ((3/2)*this.radius)
+  this.hexWidth = (Math.sqrt(3)*this.radius)
+  
+  this.xCount = Math.ceil(this.height / this.hexHeight)
+  this.yCount = Math.ceil(this.width / this.hexWidth)
+  this.stepSize = 1/600;
+}
 
 const canvas = document.getElementById('lyfe-canvas');
 const ctx = canvas.getContext('2d');
@@ -56,19 +68,15 @@ var COLOR_PALETTE = {};
 const CAP_COLOR_PALETTE = {
   low: "#531b1b",
   medium: "#331b53",
-  high: "#1b3153"
+  high: "#1b3153",
 }
+const THEME_COLOR =  "#78E2A0"
 var lastSize = 0;
 
-function drawHexagonGrid(width, height, radius) {
-    // not accurate but good enough?
-    const hexHeight = ((3/2)*radius)
-    const hexWidth = (Math.sqrt(3)*radius)
-    const xCount = Math.ceil(height / hexHeight)
-    const yCount = Math.ceil(width / hexWidth)
+function drawHexagonGrid(config) {
     // console.log(xCount, yCount)
-    const Hex = Honeycomb.defineHex({ dimensions: radius, origin: 'topLeft'})
-    grid = new Honeycomb.Grid(Hex, Honeycomb.rectangle({ width: yCount, height: xCount}))
+    const Hex = Honeycomb.defineHex({ dimensions: config.radius, origin: 'topLeft'})
+    grid = new Honeycomb.Grid(Hex, Honeycomb.rectangle({ width: config.yCount, height: config.xCount}))
 
     // this adds more generated colors only when required:
     // This is useful for changing windows size
@@ -78,9 +86,9 @@ function drawHexagonGrid(width, height, radius) {
       grid.forEach(generateColorsFromEachHex);
     }
     // am I inverting the x and y coordinate system somewhere? :notlikethis:
-    var capKCell = {"x": width - hexWidth, "y": height - hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.k.status]}
-    var capPCell = {"x": width - (hexWidth*2) , "y": height - hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.p.status]}
-    var capSCell = {"x": width - (hexWidth*3) , "y": height - hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.s.status]}
+    var capKCell = {"x": config.width - config.hexWidth, "y": config.height - config.hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.k.status]}
+    var capPCell = {"x": config.width - (config.hexWidth*2) , "y": config.height - config.hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.p.status]}
+    var capSCell = {"x": config.width - (config.hexWidth*3) , "y": config.height - config.hexHeight, color: CAP_COLOR_PALETTE[fakeDataInput.capacity.s.status]}
     drawUI(grid, capKCell, capPCell, capSCell)
     grid.forEach(drawHex);
 }
@@ -107,6 +115,105 @@ function getColorOfHexByPalette(hex, pallette) {
 
 function generateColorsFromEachHex(currentHex) {
   generateColors(currentHex, COLOR_PALETTE)
+}
+
+function drawParticuleAt(p){
+  ctx.beginPath();
+  ctx.arc(p.position.x, p.position.y, 2, 0, Math.PI * 2, false);
+  ctx.strokeStyle = p.color;
+  ctx.stroke();
+  ctx.closePath();
+}
+
+var PARTICULES = new Map();
+function Position(){
+  this.x = 0
+  this.y = 0
+}
+
+function Particule () {
+  this.position = Position
+  this.radius = 2
+  this.color = "white"
+  this.isOnTop = false
+  this.stepInTransition = 0
+  this.nextMove = Direction.NONE
+}
+
+const Direction = {
+  NONE: -1,
+  UP: 0,
+  DOWN: 1,
+  UP_LEFT: 2,
+  UP_RIGHT: 3,
+  DOWN_RIGHT: 4,
+  DOWN_LEFT: 5,
+}
+
+const ALLOWED_DIRECTIONS_FOR = {
+  // because we are using a pointy top hexagon grid there is only 2 position: on top or on bottom of the hexagon
+  // every other position is the top or bottom of one of its neighbors
+  BOTTOM: [Direction.DOWN, Direction.UP_LEFT, Direction.UP_RIGHT], 
+  TOP: [Direction.UP, Direction.DOWN_RIGHT, Direction.DOWN_LEFT],
+}
+
+function moveParticule(config, p){
+  moveSideX = config.hexWidth/2
+  moveSideY = (config.hexHeight/4) + 4
+
+  moveVerticalY = config.radius
+
+  p.stepInTransition++
+  
+  if(p.stepInTransition == 1/config.stepSize){
+    setRandomDirection(p)
+    p.stepInTransition = 0
+    // Any move will make the particule either be on top or on bottom of the hexagon
+    p.isOnTop = !p.isOnTop
+  }
+
+  switch(p.nextMove){
+    case Direction.UP:
+      p.position.x -= 0
+      p.position.y -= moveVerticalY*config.stepSize
+      break;
+    case Direction.DOWN:
+      p.position.y += 0
+      p.position.y += moveVerticalY*config.stepSize
+      break;
+    case Direction.UP_LEFT:
+      p.position.x -= moveSideX*config.stepSize
+      p.position.y -= moveSideY*config.stepSize
+      break;
+    case Direction.UP_RIGHT:
+      p.position.x += moveSideX*config.stepSize
+      p.position.y -= moveSideY*config.stepSize
+      break;
+    case Direction.DOWN_RIGHT:
+      p.position.x += moveSideX*config.stepSize
+      p.position.y += moveSideY*config.stepSize
+      break;
+    case Direction.DOWN_LEFT:
+      p.position.x -= moveSideX*config.stepSize
+      p.position.y += moveSideY*config.stepSize
+      break;
+    default:
+      console.log("no direction")
+  }
+}
+
+function possibleDirectionsFor(isOnTop){
+  if(isOnTop){
+    return ALLOWED_DIRECTIONS_FOR.TOP
+  }
+  return ALLOWED_DIRECTIONS_FOR.BOTTOM
+}
+
+function drawParticules(config){
+  PARTICULES.forEach(function(p, key, map){
+    moveParticule(config, p, p.nextMove)
+    drawParticuleAt(p)
+  })
 }
 
 function generateColors(currentHex, mapping){
@@ -140,20 +247,74 @@ function shuffle(array) {
   return array;
 }
 
-function main(){
-  window.requestAnimationFrame(draw);
+function getPreferedDirection(x, y, listOfPossibleMoves){
+  // if the particule is on top of the hexagon, it will prefer to go down
+  // if the particule is on the bottom of the hexagon, it will prefer to go up
+  preferedMoves = []
+  for (let i = 0; i < listOfPossibleMoves.length; i++) {
+    const move = listOfPossibleMoves[i];
+    if(move == Direction.UP && y < 50){
+      continue
+    }
+    if((move == Direction.UP_LEFT || move == Direction.DOWN_LEFT ) && x < 50){
+      continue
+    }
+    if((move == Direction.UP_LEFT || move == Direction.DOWN_LEFT ) && x < 50){
+      continue
+    }
+    preferedMoves.push(move)
+  }
+  return preferedMoves;
 }
 
-function draw(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const width =  window.innerWidth;
-  const height =  window.innerHeight;
-  const radius = 50;
-  canvas.width = width;
-  canvas.height = height;
+function setRandomDirection(p){
+  possibleMoves = possibleDirectionsFor(p.isOnTop)
+  preferedMove = getPreferedDirection(p.position.x, p.position.y, possibleMoves)
+  console.log(preferedMove)
+  p.nextMove = preferedMove[Math.floor(Math.random()*preferedMove.length)];
+}
 
-  drawHexagonGrid(width, height, radius);
-  window.requestAnimationFrame(draw);
+
+function main(){
+  config = new Config()
+
+  pl = new Particule()
+  plPos = new Position()
+  plPos.x = config.hexWidth*2
+  plPos.y = config.hexHeight*3
+  pl.position = plPos
+  pl.color = "white"
+  pl.isOnTop = true
+  PARTICULES.set("l", pl)
+
+  pe = new Particule()
+  pePos = new Position()
+  pePos.x = (config.hexWidth/2)*7
+  pePos.y = (config.hexHeight)*2
+  pe.position = pePos
+  pe.isOnTop = true
+  pe.color = THEME_COLOR
+
+  setRandomDirection(pe)
+  setRandomDirection(pl)
+  
+  PARTICULES.set("e", pe)
+  console.log(PARTICULES)
+  window.requestAnimationFrame(function() {
+    draw(config)
+  });
+}
+
+function draw(cfg){
+  canvas.width = cfg.width;
+  canvas.height = cfg.height;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawHexagonGrid(cfg);
+  window.requestAnimationFrame(function(){
+    draw(cfg)
+    drawParticules(cfg)
+  });
 }
 
 function drawUI(grid, capKCell, capPCell, capSCell){
@@ -169,7 +330,6 @@ function drawUI(grid, capKCell, capPCell, capSCell){
     { x: capSCell.x, y: capSCell.y },
     { allowOutside: true }
   );
-  // console.log(capKCell, capPCell, capKCellHex, capPCellHex)
 
   COLOR_PALETTE[capKCellHex] = capKCell.color
   COLOR_PALETTE[capPCellHex] = capPCell.color
